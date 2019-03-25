@@ -1,0 +1,22 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="evid_pracoviste" directorySegmentName="seg_0" id="33140918-BDB3-7B36-B37B-60AC12AB653C">
+<createdBy>caval</createdBy>
+<createdTime>2018-04-15 18:19:19 UTC</createdTime>
+<ownerDesignName>semestralkaDatabaze</ownerDesignName>
+<engineerTo>
+<item key="B1B1D5B1-B831-FD39-942C-4EC0E68E1E6B" value="true"/>
+</engineerTo>
+<sourcePk>09405491-69ED-AFFC-F62F-164E1C598641</sourcePk>
+<targetPk>4F3D0AE3-0108-D498-386C-1EE1F9912103</targetPk>
+<identifying>false</identifying>
+<nameOnSource>má</nameOnSource>
+<nameOnTarget>patří</nameOnTarget>
+<optionalSource>false</optionalSource>
+<optionalTarget>true</optionalTarget>
+<sourceCardinality>*</sourceCardinality>
+<sourceEntity>BD188C69-C44E-43E5-7E1B-067B6A40E2A7</sourceEntity>
+<targetCardinalityString>1</targetCardinalityString>
+<targetEntity>51DC3C32-504B-94EE-B93B-7D4B9AE0E33F</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

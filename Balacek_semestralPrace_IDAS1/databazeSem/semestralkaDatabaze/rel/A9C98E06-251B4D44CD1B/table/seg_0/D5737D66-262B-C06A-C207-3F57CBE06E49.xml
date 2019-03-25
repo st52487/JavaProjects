@@ -1,0 +1,49 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="D5737D66-262B-C06A-C207-3F57CBE06E49" name="ZPUSOB_VYUKY">
+<createdBy>caval</createdBy>
+<createdTime>2018-04-29 09:55:10 UTC</createdTime>
+<generatorID>866C6801-F5FA-EDFF-0512-8A4BCF737F6E</generatorID>
+<ownerDesignName>semestralkaDatabaze</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_zpusobVyuky" id="C62D6D02-B9A2-B913-61F7-29FBD13DCE84">
+<createdBy>caval</createdBy>
+<createdTime>2018-04-29 09:55:10 UTC</createdTime>
+<generatorID>8CA0562F-8C9C-B610-CA04-9879EF01350B</generatorID>
+<ownerDesignName>semestralkaDatabaze</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="druhVyuky(cvic,pred,sem)" id="1902C712-ADF5-22D9-54CA-2C732D9AB0D1">
+<createdBy>caval</createdBy>
+<createdTime>2018-04-29 09:55:10 UTC</createdTime>
+<generatorID>46FED3AD-9B05-6C9B-63B0-314EBB02ABBD</generatorID>
+<ownerDesignName>semestralkaDatabaze</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200</dataTypeSize>
+<ownDataTypeParameters>200,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="D608ADDF-BEF1-5EBC-B813-41314E5E7A7C" name="ZPUSOB_VYUKY_PK">
+<createdBy>caval</createdBy>
+<createdTime>2018-04-29 09:55:10 UTC</createdTime>
+<generatorID>6604C745-6D46-09C6-4EE5-65DCAF8743F0</generatorID>
+<ownerDesignName>semestralkaDatabaze</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C62D6D02-B9A2-B913-61F7-29FBD13DCE84"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="AA850EE7-D648-02F1-CF00-75015EA1D891" containerWithKeyObject="6852CCEA-5518-D3B7-D8DF-CCAB51492A36" localFKIndex="09765D1F-FFC2-26FE-1254-FB02CE6D8245" name="VYUCUJICI_KONTAKT_FK">
+<createdBy>caval</createdBy>
+<createdTime>2018-04-29 09:55:10 UTC</createdTime>
+<generatorID>5D04F13D-BB6A-532B-AF25-4D985D9ED210</generatorID>
+<ownerDesignName>semestralkaDatabaze</ownerDesignName>
+<referredTableLongName>KONTAKT</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>20FE88A2-AB2D-C477-CC80-58BE83B94EA3</referredTableID>
+<keyObject>A1D9C660-20FC-ABDF-CB36-EB00F61473A8</keyObject>
+<referredKeyID>A1D9C660-20FC-ABDF-CB36-EB00F61473A8</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>id_kontakt</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

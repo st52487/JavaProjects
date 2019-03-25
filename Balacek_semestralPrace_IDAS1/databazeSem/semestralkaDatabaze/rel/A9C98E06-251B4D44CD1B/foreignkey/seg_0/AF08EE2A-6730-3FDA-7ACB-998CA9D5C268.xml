@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="AF08EE2A-6730-3FDA-7ACB-998CA9D5C268" containerWithKeyObject="C796A941-CC85-FBB9-8135-ADCEC23B197D" localFKIndex="3D8DC5B3-F7EC-726A-59BA-273BEC4F9CD7" name="STUDIJNI_PLAN_STUD_OBOR_FK">
+<createdBy>caval</createdBy>
+<createdTime>2018-04-29 09:55:11 UTC</createdTime>
+<generatorID>31C00D6E-EB4A-469D-00A8-3445FAAA4FE8</generatorID>
+<ownerDesignName>semestralkaDatabaze</ownerDesignName>
+<referredTableLongName>STUD_OBOR</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>080F7DBE-A17D-5739-A337-A188CCD3DF3E</referredTableID>
+<keyObject>C26CCC04-FD4B-C63B-866F-5593F7DB706D</keyObject>
+<referredKeyID>C26CCC04-FD4B-C63B-866F-5593F7DB706D</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>id_studObor</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

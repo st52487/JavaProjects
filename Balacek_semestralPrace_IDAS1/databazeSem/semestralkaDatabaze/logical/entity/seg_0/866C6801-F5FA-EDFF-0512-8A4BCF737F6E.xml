@@ -1,0 +1,53 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="866C6801-F5FA-EDFF-0512-8A4BCF737F6E" name="ZPUSOB_VYUKY">
+<createdBy>caval</createdBy>
+<createdTime>2018-04-27 19:56:12 UTC</createdTime>
+<ownerDesignName>semestralkaDatabaze</ownerDesignName>
+<engineerTo>
+<item key="B1B1D5B1-B831-FD39-942C-4EC0E68E1E6B" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id_zpusobVyuky" id="8CA0562F-8C9C-B610-CA04-9879EF01350B">
+<createdBy>caval</createdBy>
+<createdTime>2018-04-27 19:56:23 UTC</createdTime>
+<ownerDesignName>semestralkaDatabaze</ownerDesignName>
+<engineerTo>
+<item key="B1B1D5B1-B831-FD39-942C-4EC0E68E1E6B" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="druhVyuky(cvic,pred,sem)" id="46FED3AD-9B05-6C9B-63B0-314EBB02ABBD">
+<createdBy>caval</createdBy>
+<createdTime>2018-04-27 19:56:33 UTC</createdTime>
+<ownerDesignName>semestralkaDatabaze</ownerDesignName>
+<engineerTo>
+<item key="B1B1D5B1-B831-FD39-942C-4EC0E68E1E6B" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="6604C745-6D46-09C6-4EE5-65DCAF8743F0" name="ZPUSOB_VYUKY PK">
+<createdBy>caval</createdBy>
+<createdTime>2018-04-27 19:56:32 UTC</createdTime>
+<ownerDesignName>semestralkaDatabaze</ownerDesignName>
+<engineerTo>
+<item key="B1B1D5B1-B831-FD39-942C-4EC0E68E1E6B" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>8CA0562F-8C9C-B610-CA04-9879EF01350B</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

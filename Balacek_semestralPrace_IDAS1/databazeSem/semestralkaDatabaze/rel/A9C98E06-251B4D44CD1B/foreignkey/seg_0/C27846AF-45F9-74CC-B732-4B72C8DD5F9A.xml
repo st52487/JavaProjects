@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="C27846AF-45F9-74CC-B732-4B72C8DD5F9A" containerWithKeyObject="D0436A1F-75DD-A892-8CF3-1026DB4D1611" localFKIndex="990FEB19-0343-8224-5C28-A8D7DD4828C3" name="ROZVRHOVY_PLAN_PREDMET_FK">
+<createdBy>caval</createdBy>
+<createdTime>2018-04-29 09:55:11 UTC</createdTime>
+<generatorID>230FAAB1-E78B-FA6D-7F4F-DEE5D3BBD54D</generatorID>
+<ownerDesignName>semestralkaDatabaze</ownerDesignName>
+<referredTableLongName>PREDMET</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>661D1E4F-2AFC-B9CB-8910-CF2BB0C152D1</referredTableID>
+<keyObject>51153A56-9ADA-12AF-65CD-95471819C03E</keyObject>
+<referredKeyID>51153A56-9ADA-12AF-65CD-95471819C03E</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>id_predmet</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

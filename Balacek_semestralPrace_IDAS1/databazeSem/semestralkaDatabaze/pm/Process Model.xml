@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<ProcessModel class="oracle.dbtools.crest.model.design.process.ProcessModel" name="Process Model" id="D3B4F7CC-038C-FDE4-C3B3-7EF2D8E33700">
+<createdBy>caval</createdBy>
+<createdTime>2018-04-15 18:10:24 UTC</createdTime>
+<ownerDesignName>semestralkaDatabaze</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</ProcessModel>

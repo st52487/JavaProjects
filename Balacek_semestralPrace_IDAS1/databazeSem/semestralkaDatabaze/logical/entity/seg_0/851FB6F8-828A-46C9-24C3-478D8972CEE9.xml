@@ -1,0 +1,93 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="851FB6F8-828A-46C9-24C3-478D8972CEE9" name="PREDMET">
+<createdBy>caval</createdBy>
+<createdTime>2018-04-15 18:17:56 UTC</createdTime>
+<ownerDesignName>semestralkaDatabaze</ownerDesignName>
+<engineerTo>
+<item key="B1B1D5B1-B831-FD39-942C-4EC0E68E1E6B" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id_predmet" id="2FE4F8AE-F3C8-AF9B-B038-22825E457E47">
+<createdBy>caval</createdBy>
+<createdTime>2018-04-15 18:18:01 UTC</createdTime>
+<ownerDesignName>semestralkaDatabaze</ownerDesignName>
+<engineerTo>
+<item key="B1B1D5B1-B831-FD39-942C-4EC0E68E1E6B" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="nazev" id="492C5DFE-2340-7D65-EED2-EC491F45F0B5">
+<createdBy>caval</createdBy>
+<createdTime>2018-04-15 18:18:07 UTC</createdTime>
+<ownerDesignName>semestralkaDatabaze</ownerDesignName>
+<engineerTo>
+<item key="B1B1D5B1-B831-FD39-942C-4EC0E68E1E6B" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="zkratka" id="25A72FDD-947A-C2DB-ABD8-7E57F1B6C06A">
+<createdBy>caval</createdBy>
+<createdTime>2018-04-15 18:18:13 UTC</createdTime>
+<ownerDesignName>semestralkaDatabaze</ownerDesignName>
+<engineerTo>
+<item key="B1B1D5B1-B831-FD39-942C-4EC0E68E1E6B" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="zpusobZakonceni" id="8E475040-7654-90BB-F869-A6EFD0153368">
+<createdBy>caval</createdBy>
+<createdTime>2018-04-15 18:18:18 UTC</createdTime>
+<ownerDesignName>semestralkaDatabaze</ownerDesignName>
+<engineerTo>
+<item key="B1B1D5B1-B831-FD39-942C-4EC0E68E1E6B" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="formaVyuky" id="17180CE0-03C9-BCEA-149B-BD4C5978E466">
+<createdBy>caval</createdBy>
+<createdTime>2018-04-15 18:18:26 UTC</createdTime>
+<ownerDesignName>semestralkaDatabaze</ownerDesignName>
+<engineerTo>
+<item key="B1B1D5B1-B831-FD39-942C-4EC0E68E1E6B" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="kapacita" id="3EEFA772-8170-5D2B-2C4D-DC9EDA7F8567">
+<createdBy>caval</createdBy>
+<createdTime>2018-04-25 15:48:15 UTC</createdTime>
+<ownerDesignName>semestralkaDatabaze</ownerDesignName>
+<engineerTo>
+<item key="B1B1D5B1-B831-FD39-942C-4EC0E68E1E6B" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="A57ED714-E945-6A1B-60BE-EEBBCB758246" name="PREDMET PK">
+<createdBy>caval</createdBy>
+<createdTime>2018-04-15 18:18:06 UTC</createdTime>
+<ownerDesignName>semestralkaDatabaze</ownerDesignName>
+<engineerTo>
+<item key="B1B1D5B1-B831-FD39-942C-4EC0E68E1E6B" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>2FE4F8AE-F3C8-AF9B-B038-22825E457E47</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

@@ -1,0 +1,86 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="AF20065A-A29A-2012-6133-1CB30DBA9FFE" name="PRACOVISTE">
+<createdBy>caval</createdBy>
+<createdTime>2018-04-29 09:55:10 UTC</createdTime>
+<generatorID>51DC3C32-504B-94EE-B93B-7D4B9AE0E33F</generatorID>
+<ownerDesignName>semestralkaDatabaze</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_pracoviste" id="B110E0B0-7C0A-B85B-631A-8474ACAC79F1">
+<createdBy>caval</createdBy>
+<createdTime>2018-04-29 09:55:10 UTC</createdTime>
+<generatorID>8FDF5861-9D36-ACFB-8DF8-1C449994973D</generatorID>
+<ownerDesignName>semestralkaDatabaze</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="zkratka" id="4355CB9B-9AA1-5D8D-D56A-41A01342D746">
+<createdBy>caval</createdBy>
+<createdTime>2018-04-29 09:55:10 UTC</createdTime>
+<generatorID>0BDF193C-B87D-C188-095D-226DDC670F4D</generatorID>
+<ownerDesignName>semestralkaDatabaze</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>10</dataTypeSize>
+<ownDataTypeParameters>10,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="nazev" id="3609C402-7127-864B-E923-7E8D91156FDE">
+<createdBy>caval</createdBy>
+<createdTime>2018-04-29 09:55:10 UTC</createdTime>
+<generatorID>0687F1D6-B151-FAC4-AEBD-AF28F7B1FCD8</generatorID>
+<ownerDesignName>semestralkaDatabaze</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200</dataTypeSize>
+<ownDataTypeParameters>200,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="fakulta" id="4387DE32-9CBF-1C82-D1B4-D48894073ACD">
+<createdBy>caval</createdBy>
+<createdTime>2018-04-29 09:55:10 UTC</createdTime>
+<generatorID>E65BC26E-DC01-B963-8592-E0489D30005F</generatorID>
+<ownerDesignName>semestralkaDatabaze</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200</dataTypeSize>
+<ownDataTypeParameters>200,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="plnyNazevFakulta" id="56DE1535-6A7D-688E-D247-C9829483599E">
+<createdBy>caval</createdBy>
+<createdTime>2018-04-29 09:55:10 UTC</createdTime>
+<generatorID>9B4C3CC3-0118-DFD9-1BF7-13BE3BD9D0AB</generatorID>
+<ownerDesignName>semestralkaDatabaze</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>200</dataTypeSize>
+<ownDataTypeParameters>200,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="29CEBF6A-97AE-D2A7-AF46-F8C4FE38078C" name="PRACOVISTE_PK">
+<createdBy>caval</createdBy>
+<createdTime>2018-04-29 09:55:10 UTC</createdTime>
+<generatorID>4F3D0AE3-0108-D498-386C-1EE1F9912103</generatorID>
+<ownerDesignName>semestralkaDatabaze</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="B110E0B0-7C0A-B85B-631A-8474ACAC79F1"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

@@ -1,0 +1,8 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<OSDM_Design class="oracle.dbtools.crest.model.design.Design" name="semestralkaDatabaze" id="7B287D09-F52E-869C-0918-F67236547377" version="3.5">
+<createdBy>caval</createdBy>
+<createdTime>2018-04-15 18:10:23 UTC</createdTime>
+<ownerDesignName>semestralkaDatabaze</ownerDesignName>
+<capitalNames>false</capitalNames>
+<designId>7B287D09-F52E-869C-0918-F67236547377</designId>
+</OSDM_Design>

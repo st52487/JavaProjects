@@ -1,0 +1,72 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="20FE88A2-AB2D-C477-CC80-58BE83B94EA3" name="KONTAKT">
+<createdBy>caval</createdBy>
+<createdTime>2018-04-29 09:55:10 UTC</createdTime>
+<generatorID>1BD970D4-787F-4DAA-52C5-307801E56943</generatorID>
+<ownerDesignName>semestralkaDatabaze</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="telefon" id="03472C59-0B43-B05A-85CE-9C18B13C08E6">
+<createdBy>caval</createdBy>
+<createdTime>2018-04-29 09:55:10 UTC</createdTime>
+<generatorID>AA73DEBF-1B2C-9638-78FA-150615D3AC8D</generatorID>
+<ownerDesignName>semestralkaDatabaze</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="id_kontakt" id="FE1084C4-FDA9-A21B-76AD-933E3888727F">
+<createdBy>caval</createdBy>
+<createdTime>2018-04-29 09:55:10 UTC</createdTime>
+<generatorID>0C5682F5-AEC8-C60F-4A4F-1E9B524AC746</generatorID>
+<ownerDesignName>semestralkaDatabaze</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="mobil" id="56BD884E-7302-486A-ED73-8274650698F5">
+<createdBy>caval</createdBy>
+<createdTime>2018-04-29 09:55:10 UTC</createdTime>
+<generatorID>B5432365-2438-EEC7-6D5C-A243A43F4628</generatorID>
+<ownerDesignName>semestralkaDatabaze</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="email" id="08BE36FA-0769-1EE3-93E0-747F646CC681">
+<createdBy>caval</createdBy>
+<createdTime>2018-04-29 09:55:10 UTC</createdTime>
+<generatorID>78366E64-637D-63E8-7C4D-9DCA6F04C395</generatorID>
+<ownerDesignName>semestralkaDatabaze</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="A1D9C660-20FC-ABDF-CB36-EB00F61473A8" name="KONTAKT_PK">
+<createdBy>caval</createdBy>
+<createdTime>2018-04-29 09:55:10 UTC</createdTime>
+<generatorID>7EDA13E6-366E-E313-408A-465C00190219</generatorID>
+<ownerDesignName>semestralkaDatabaze</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="FE1084C4-FDA9-A21B-76AD-933E3888727F"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

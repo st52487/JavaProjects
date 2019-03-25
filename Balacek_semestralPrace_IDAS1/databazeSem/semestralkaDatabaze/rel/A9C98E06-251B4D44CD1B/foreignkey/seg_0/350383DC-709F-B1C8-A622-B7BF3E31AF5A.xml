@@ -1,0 +1,17 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<FKIndexAssociation class="oracle.dbtools.crest.model.design.relational.FKIndexAssociation" directorySegmentName="seg_0" id="350383DC-709F-B1C8-A622-B7BF3E31AF5A" containerWithKeyObject="5FDEF70C-EF62-D12F-D70B-6CD97E391EE7" localFKIndex="0242251B-9FD0-A7A0-A164-DF155B465AC1" name="Relation_10_ZPUSOB_VYUKY_FK">
+<createdBy>caval</createdBy>
+<createdTime>2018-04-29 09:55:11 UTC</createdTime>
+<generatorID>EFE8545B-5742-C21D-D549-B6BC6E6211F0</generatorID>
+<ownerDesignName>semestralkaDatabaze</ownerDesignName>
+<referredTableLongName>ZPUSOB_VYUKY</referredTableLongName>
+<deleteRule>NO ACTION</deleteRule>
+<referredTableID>D5737D66-262B-C06A-C207-3F57CBE06E49</referredTableID>
+<keyObject>D608ADDF-BEF1-5EBC-B813-41314E5E7A7C</keyObject>
+<referredKeyID>D608ADDF-BEF1-5EBC-B813-41314E5E7A7C</referredKeyID>
+<mandatory>true</mandatory>
+<refColNames>id_zpusobVyuky</refColNames>
+<transferable>true</transferable>
+<rely>false</rely>
+<columnDependencyConstraintGenerateInDDL>true</columnDependencyConstraintGenerateInDDL>
+</FKIndexAssociation>

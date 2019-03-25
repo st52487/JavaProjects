@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<BusinessInfoDesign class="oracle.dbtools.crest.model.businessinfo.BusinessInfoDesign" name="Business Information" id="C5FCAC37-DDCE-F4AB-E74F-08E06DFB6B7D">
+<createdBy>caval</createdBy>
+<createdTime>2018-04-15 18:10:24 UTC</createdTime>
+<ownerDesignName>semestralkaDatabaze</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</BusinessInfoDesign>

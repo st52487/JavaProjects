@@ -1,0 +1,7 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<LogicalDesign class="oracle.dbtools.crest.model.design.logical.LogicalDesign" name="Logical" id="C6DC6ABD-FD07-B8E9-092F-BFE13B9727D4" mainViewID="89B6F9EA-EB6A-7963-1C65-D36E51DED882">
+<createdBy>caval</createdBy>
+<createdTime>2018-04-15 18:10:23 UTC</createdTime>
+<ownerDesignName>semestralkaDatabaze</ownerDesignName>
+<shouldBeOpen>false</shouldBeOpen>
+</LogicalDesign>

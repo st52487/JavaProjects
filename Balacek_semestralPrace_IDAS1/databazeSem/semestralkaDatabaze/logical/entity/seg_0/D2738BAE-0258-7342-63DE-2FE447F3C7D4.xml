@@ -1,0 +1,53 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="D2738BAE-0258-7342-63DE-2FE447F3C7D4" name="KATEGORIE">
+<createdBy>caval</createdBy>
+<createdTime>2018-04-15 18:16:33 UTC</createdTime>
+<ownerDesignName>semestralkaDatabaze</ownerDesignName>
+<engineerTo>
+<item key="B1B1D5B1-B831-FD39-942C-4EC0E68E1E6B" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id_kategorie" id="F367E91D-4722-B832-8CEC-7F6046C07FF7">
+<createdBy>caval</createdBy>
+<createdTime>2018-04-15 18:16:44 UTC</createdTime>
+<ownerDesignName>semestralkaDatabaze</ownerDesignName>
+<engineerTo>
+<item key="B1B1D5B1-B831-FD39-942C-4EC0E68E1E6B" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="druhKategorie" id="333DB179-5DED-8A7B-CCE8-433B809A324E">
+<createdBy>caval</createdBy>
+<createdTime>2018-04-15 18:16:50 UTC</createdTime>
+<ownerDesignName>semestralkaDatabaze</ownerDesignName>
+<engineerTo>
+<item key="B1B1D5B1-B831-FD39-942C-4EC0E68E1E6B" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="53CE9A7F-6E9C-B324-C3BF-04FEBF22FB20" name="KATEGORIE PK">
+<createdBy>caval</createdBy>
+<createdTime>2018-04-15 18:16:49 UTC</createdTime>
+<ownerDesignName>semestralkaDatabaze</ownerDesignName>
+<engineerTo>
+<item key="B1B1D5B1-B831-FD39-942C-4EC0E68E1E6B" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>F367E91D-4722-B832-8CEC-7F6046C07FF7</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

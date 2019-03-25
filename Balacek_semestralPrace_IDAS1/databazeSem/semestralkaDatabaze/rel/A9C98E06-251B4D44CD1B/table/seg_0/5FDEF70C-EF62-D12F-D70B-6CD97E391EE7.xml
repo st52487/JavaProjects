@@ -1,0 +1,73 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="5FDEF70C-EF62-D12F-D70B-6CD97E391EE7" name="Relation_10">
+<createdBy>caval</createdBy>
+<createdTime>2018-04-29 09:55:11 UTC</createdTime>
+<ownerDesignName>semestralkaDatabaze</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="ROZVRHOVY_PLAN_id_rozvrhovyPlan" id="77601B46-9801-4D66-98EB-7561E5305E7D">
+<createdBy>caval</createdBy>
+<createdTime>2018-04-29 09:55:11 UTC</createdTime>
+<ownerDesignName>semestralkaDatabaze</ownerDesignName>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="F52C9B6E-CF68-1119-2A35-AD4683AAC04C" referredColumn="56D759D3-FB6B-7085-A0C3-943F2870B441"/>
+</associations>
+</Column>
+<Column name="ZPUSOB_VYUKY_id_zpusobVyuky" id="57EFD058-9557-ED83-7698-D5AF00052838">
+<createdBy>caval</createdBy>
+<createdTime>2018-04-29 09:55:11 UTC</createdTime>
+<ownerDesignName>semestralkaDatabaze</ownerDesignName>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="350383DC-709F-B1C8-A622-B7BF3E31AF5A" referredColumn="C62D6D02-B9A2-B913-61F7-29FBD13DCE84"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="008E58D2-AC71-2CA1-F2C3-BD71B26605F9" name="Relation_10_PK">
+<createdBy>caval</createdBy>
+<createdTime>2018-04-29 09:55:11 UTC</createdTime>
+<ownerDesignName>semestralkaDatabaze</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="77601B46-9801-4D66-98EB-7561E5305E7D"/>
+<colUsage columnID="57EFD058-9557-ED83-7698-D5AF00052838"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="68FFDCBE-3AA0-42BC-0E8E-5A89D17E5F63" name="Relation_10_ROZVRHOVY_PLAN_FK">
+<createdBy>caval</createdBy>
+<createdTime>2018-04-29 09:55:11 UTC</createdTime>
+<generatorID>EFE8545B-5742-C21D-D549-B6BC6E6211F0</generatorID>
+<ownerDesignName>semestralkaDatabaze</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="77601B46-9801-4D66-98EB-7561E5305E7D"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="0242251B-9FD0-A7A0-A164-DF155B465AC1" name="Relation_10_ZPUSOB_VYUKY_FK">
+<createdBy>caval</createdBy>
+<createdTime>2018-04-29 09:55:11 UTC</createdTime>
+<generatorID>EFE8545B-5742-C21D-D549-B6BC6E6211F0</generatorID>
+<ownerDesignName>semestralkaDatabaze</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="57EFD058-9557-ED83-7698-D5AF00052838"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

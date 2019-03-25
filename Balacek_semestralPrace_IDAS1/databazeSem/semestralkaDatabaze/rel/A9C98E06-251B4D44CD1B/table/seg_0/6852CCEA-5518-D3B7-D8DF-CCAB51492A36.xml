@@ -1,0 +1,139 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="6852CCEA-5518-D3B7-D8DF-CCAB51492A36" name="VYUCUJICI">
+<createdBy>caval</createdBy>
+<createdTime>2018-04-29 09:55:10 UTC</createdTime>
+<generatorID>BD188C69-C44E-43E5-7E1B-067B6A40E2A7</generatorID>
+<ownerDesignName>semestralkaDatabaze</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_evidVyuc" id="75033B61-6F80-EB8F-EA8B-0D6A0FA2E4C7">
+<createdBy>caval</createdBy>
+<createdTime>2018-04-29 09:55:10 UTC</createdTime>
+<generatorID>9F30CB66-389F-FA9E-69F2-9029CE440096</generatorID>
+<ownerDesignName>semestralkaDatabaze</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="prijmeni" id="7E914F8B-55C4-9A62-7C80-68419396E581">
+<createdBy>caval</createdBy>
+<createdTime>2018-04-29 09:55:10 UTC</createdTime>
+<generatorID>A8615E0E-C021-2BFE-8003-D820E2CA3E24</generatorID>
+<ownerDesignName>semestralkaDatabaze</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>50</dataTypeSize>
+<ownDataTypeParameters>50,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="jmeno" id="2D29687E-1C5C-A2AB-0203-E40EE347D830">
+<createdBy>caval</createdBy>
+<createdTime>2018-04-29 09:55:10 UTC</createdTime>
+<generatorID>DF7A9A64-3A00-C982-F9B3-DBCC3783CB60</generatorID>
+<ownerDesignName>semestralkaDatabaze</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT024</logicalDatatype>
+<dataTypeSize>30</dataTypeSize>
+<ownDataTypeParameters>30,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="titalZa" id="4BF590E3-BB2F-6435-2ADB-22C82BBDE6C4">
+<createdBy>caval</createdBy>
+<createdTime>2018-04-29 09:55:10 UTC</createdTime>
+<generatorID>1D838372-1973-0095-1364-EDD6E5489E2D</generatorID>
+<ownerDesignName>semestralkaDatabaze</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>5</dataTypeSize>
+<ownDataTypeParameters>5,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="titulPred" id="7B090B18-1A0F-546B-D554-9EBE8B3E739A">
+<createdBy>caval</createdBy>
+<createdTime>2018-04-29 09:55:10 UTC</createdTime>
+<generatorID>119F2717-671E-157B-8B19-36A7CC32F94F</generatorID>
+<ownerDesignName>semestralkaDatabaze</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT025</logicalDatatype>
+<dataTypeSize>5</dataTypeSize>
+<ownDataTypeParameters>5,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="KONTAKT_id_kontakt" id="07CDF641-C7FB-F183-610A-31133A611CB8">
+<createdBy>caval</createdBy>
+<createdTime>2018-04-29 09:55:10 UTC</createdTime>
+<generatorID>CCC82358-247A-681F-191E-F61718E0FEF8</generatorID>
+<ownerDesignName>semestralkaDatabaze</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="AA850EE7-D648-02F1-CF00-75015EA1D891" referredColumn="FE1084C4-FDA9-A21B-76AD-933E3888727F"/>
+</associations>
+</Column>
+<Column name="PRACOVISTE_id_pracoviste" id="C2AF5B94-5018-40D4-4457-9E00671F2014">
+<createdBy>caval</createdBy>
+<createdTime>2018-04-29 09:55:10 UTC</createdTime>
+<generatorID>F2090D1F-A0B9-9EB1-A076-99BA0B358340</generatorID>
+<ownerDesignName>semestralkaDatabaze</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="236C3767-3C2E-2429-379A-3E8C4323E92E" referredColumn="B110E0B0-7C0A-B85B-631A-8474ACAC79F1"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="14BDA51F-CFD6-4008-C2C9-0DA8CCBEA53F" name="VYUCUJICI_PK">
+<createdBy>caval</createdBy>
+<createdTime>2018-04-29 09:55:10 UTC</createdTime>
+<generatorID>09405491-69ED-AFFC-F62F-164E1C598641</generatorID>
+<ownerDesignName>semestralkaDatabaze</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="75033B61-6F80-EB8F-EA8B-0D6A0FA2E4C7"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="09765D1F-FFC2-26FE-1254-FB02CE6D8245" name="VYUCUJICI_KONTAKT_FK">
+<createdBy>caval</createdBy>
+<createdTime>2018-04-29 09:55:10 UTC</createdTime>
+<generatorID>5D04F13D-BB6A-532B-AF25-4D985D9ED210</generatorID>
+<ownerDesignName>semestralkaDatabaze</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="07CDF641-C7FB-F183-610A-31133A611CB8"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="65FC74AC-51FD-A003-87DF-901FF2016BF7" name="VYUCUJICI_PRACOVISTE_FK">
+<createdBy>caval</createdBy>
+<createdTime>2018-04-29 09:55:11 UTC</createdTime>
+<generatorID>33140918-BDB3-7B36-B37B-60AC12AB653C</generatorID>
+<ownerDesignName>semestralkaDatabaze</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="C2AF5B94-5018-40D4-4457-9E00671F2014"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

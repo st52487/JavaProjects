@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+
+<GridPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="265.0" prefWidth="362.0" xmlns="http://javafx.com/javafx/9.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="semestral_databaze.FXMLPridejStudijniOborController">
+  <columnConstraints>
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="175.9999755859375" minWidth="10.0" prefWidth="136.79996337890626" />
+    <ColumnConstraints hgrow="SOMETIMES" maxWidth="187.20000457763675" minWidth="10.0" prefWidth="173.60003662109378" />
+  </columnConstraints>
+  <rowConstraints>
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+    <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+  </rowConstraints>
+   <children>
+      <Label text="Složení plánu:" GridPane.halignment="CENTER" />
+      <Label text="Nazev: " GridPane.halignment="CENTER" GridPane.rowIndex="1" />
+      <Label text="Odhad počtu studentu: " GridPane.halignment="CENTER" GridPane.rowIndex="2" />
+      <Button fx:id="btnOK" mnemonicParsing="false" onAction="#clickOK" prefHeight="29.0" prefWidth="70.0" text="OK" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+      <TextField fx:id="textNazev" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+      <TextField fx:id="textOdhad" prefHeight="26.0" prefWidth="70.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+      <TextArea fx:id="textSlozeniPlanu" prefHeight="71.0" prefWidth="151.0" GridPane.columnIndex="1" />
+   </children>
+   <padding>
+      <Insets bottom="5.0" left="5.0" right="5.0" top="5.0" />
+   </padding>
+</GridPane>

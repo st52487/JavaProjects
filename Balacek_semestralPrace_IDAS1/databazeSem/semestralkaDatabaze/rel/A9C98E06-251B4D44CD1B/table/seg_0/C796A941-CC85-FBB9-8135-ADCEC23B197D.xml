@@ -1,0 +1,115 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Table class="oracle.dbtools.crest.model.design.relational.Table" directorySegmentName="seg_0" id="C796A941-CC85-FBB9-8135-ADCEC23B197D" name="STUDIJNI_PLAN">
+<createdBy>caval</createdBy>
+<createdTime>2018-04-29 09:55:10 UTC</createdTime>
+<generatorID>9FF54F5B-BEFE-3D98-B868-9A3579B8D82C</generatorID>
+<ownerDesignName>semestralkaDatabaze</ownerDesignName>
+<allowColumnReorder>false</allowColumnReorder>
+<existDependencyGenerateInDDl>true</existDependencyGenerateInDDl>
+<parsed>true</parsed>
+<columns itemClass="oracle.dbtools.crest.model.design.relational.Column">
+<Column name="id_studijniPlan" id="6CC47A54-AFBC-16F6-27B7-AA4481AD4AAE">
+<createdBy>caval</createdBy>
+<createdTime>2018-04-29 09:55:10 UTC</createdTime>
+<generatorID>271663D6-54BA-49F4-9DC6-13722B99CDC2</generatorID>
+<ownerDesignName>semestralkaDatabaze</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<autoIncrementCycle>false</autoIncrementCycle>
+</Column>
+<Column name="KATEGORIE_id_kategorie" id="3AD12984-4973-1867-5F94-8C610AB11E17">
+<createdBy>caval</createdBy>
+<createdTime>2018-04-29 09:55:10 UTC</createdTime>
+<generatorID>6087637B-52F8-8847-1C6D-5C0CD241573B</generatorID>
+<ownerDesignName>semestralkaDatabaze</ownerDesignName>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="70F42034-C40B-E0FD-E1FA-A3C62E596ABD" referredColumn="A0B2E88F-7CD7-F124-685A-9293F7ED7A71"/>
+</associations>
+</Column>
+<Column name="STUD_OBOR_id_studObor" id="60C77576-1376-5292-0842-4052C5BDB483">
+<createdBy>caval</createdBy>
+<createdTime>2018-04-29 09:55:10 UTC</createdTime>
+<generatorID>8B529B71-860D-30F5-0F75-603C89F32F93</generatorID>
+<ownerDesignName>semestralkaDatabaze</ownerDesignName>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="AF08EE2A-6730-3FDA-7ACB-998CA9D5C268" referredColumn="8718D2A4-DCCC-491B-1463-EB8DB3EE1986"/>
+</associations>
+</Column>
+<Column name="PREDMET_id_predmet" id="0CE68F97-6B94-E6C5-249A-33A2EB1BDC58">
+<createdBy>caval</createdBy>
+<createdTime>2018-04-29 09:55:10 UTC</createdTime>
+<generatorID>49BF4F1C-9A42-1303-52F6-5642C2747FA9</generatorID>
+<ownerDesignName>semestralkaDatabaze</ownerDesignName>
+<nullsAllowed>true</nullsAllowed>
+<useDomainConstraints>false</useDomainConstraints>
+<use>1</use>
+<logicalDatatype>LOGDT019</logicalDatatype>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+<previousColumn>false</previousColumn>
+<autoIncrementCycle>false</autoIncrementCycle>
+<associations>
+<colAssociation fkAssociation="6491A686-138A-59E1-D87D-141BD52BA3FD" referredColumn="19DE62C6-C3A3-E4F4-ABCD-BFDF0CC3B75F"/>
+</associations>
+</Column>
+</columns>
+<indexes itemClass="oracle.dbtools.crest.model.design.relational.Index">
+<ind_PK_UK id="77402CB1-3D99-3358-391F-C332A5440C57" name="STUDIJNI_PLAN_PK">
+<createdBy>caval</createdBy>
+<createdTime>2018-04-29 09:55:10 UTC</createdTime>
+<generatorID>479102AE-ED15-D492-6B6A-74C64E8EF410</generatorID>
+<ownerDesignName>semestralkaDatabaze</ownerDesignName>
+<pk>true</pk>
+<indexState>Primary Constraint</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="6CC47A54-AFBC-16F6-27B7-AA4481AD4AAE"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="B21953D6-FAA0-3950-6D47-BD17A58A269E" name="STUDIJNI_PLAN_KATEGORIE_FK">
+<createdBy>caval</createdBy>
+<createdTime>2018-04-29 09:55:11 UTC</createdTime>
+<generatorID>78ADD716-8815-F168-369D-E58A323AD97F</generatorID>
+<ownerDesignName>semestralkaDatabaze</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="3AD12984-4973-1867-5F94-8C610AB11E17"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="3D8DC5B3-F7EC-726A-59BA-273BEC4F9CD7" name="STUDIJNI_PLAN_STUD_OBOR_FK">
+<createdBy>caval</createdBy>
+<createdTime>2018-04-29 09:55:11 UTC</createdTime>
+<generatorID>31C00D6E-EB4A-469D-00A8-3445FAAA4FE8</generatorID>
+<ownerDesignName>semestralkaDatabaze</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="60C77576-1376-5292-0842-4052C5BDB483"/>
+</indexColumnUsage>
+</ind_PK_UK>
+<ind_PK_UK id="60D4FC12-D350-5406-C8CD-D217A9EAE5E9" name="STUDIJNI_PLAN_PREDMET_FK">
+<createdBy>caval</createdBy>
+<createdTime>2018-04-29 09:55:11 UTC</createdTime>
+<generatorID>8F2EC7AD-4BD6-4632-62EA-D87CAD4239E6</generatorID>
+<ownerDesignName>semestralkaDatabaze</ownerDesignName>
+<indexState>Foreign Key</indexState>
+<isSurrogateKey>false</isSurrogateKey>
+<indexColumnUsage>
+<colUsage columnID="0CE68F97-6B94-E6C5-249A-33A2EB1BDC58"/>
+</indexColumnUsage>
+</ind_PK_UK>
+</indexes>
+</Table>

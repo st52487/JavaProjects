@@ -1,0 +1,109 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Entity class="oracle.dbtools.crest.model.design.logical.Entity" directorySegmentName="seg_0" id="BD188C69-C44E-43E5-7E1B-067B6A40E2A7" name="VYUCUJICI">
+<createdBy>caval</createdBy>
+<createdTime>2018-04-15 18:13:49 UTC</createdTime>
+<ownerDesignName>semestralkaDatabaze</ownerDesignName>
+<engineerTo>
+<item key="B1B1D5B1-B831-FD39-942C-4EC0E68E1E6B" value="true"/>
+</engineerTo>
+<adequatelyNormalized>NO</adequatelyNormalized>
+<expectedVolumes>0</expectedVolumes>
+<fwdEngineeringStrategyName>Single Table</fwdEngineeringStrategyName>
+<growthPercent>0</growthPercent>
+<growthType>Year</growthType>
+<maxVolumes>9999999</maxVolumes>
+<minVolumes>0</minVolumes>
+<normalForm>Third</normalForm>
+<attributes itemClass="oracle.dbtools.crest.model.design.logical.Attribute">
+<Attribute name="id_evidVyuc" id="9F30CB66-389F-FA9E-69F2-9029CE440096">
+<createdBy>caval</createdBy>
+<createdTime>2018-04-15 18:13:56 UTC</createdTime>
+<ownerDesignName>semestralkaDatabaze</ownerDesignName>
+<engineerTo>
+<item key="B1B1D5B1-B831-FD39-942C-4EC0E68E1E6B" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="prijmeni" id="A8615E0E-C021-2BFE-8003-D820E2CA3E24">
+<createdBy>caval</createdBy>
+<createdTime>2018-04-15 18:14:03 UTC</createdTime>
+<ownerDesignName>semestralkaDatabaze</ownerDesignName>
+<engineerTo>
+<item key="B1B1D5B1-B831-FD39-942C-4EC0E68E1E6B" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="jmeno" id="DF7A9A64-3A00-C982-F9B3-DBCC3783CB60">
+<createdBy>caval</createdBy>
+<createdTime>2018-04-15 18:14:11 UTC</createdTime>
+<ownerDesignName>semestralkaDatabaze</ownerDesignName>
+<engineerTo>
+<item key="B1B1D5B1-B831-FD39-942C-4EC0E68E1E6B" value="true"/>
+</engineerTo>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="titalZa" id="1D838372-1973-0095-1364-EDD6E5489E2D">
+<createdBy>caval</createdBy>
+<createdTime>2018-04-15 18:14:17 UTC</createdTime>
+<ownerDesignName>semestralkaDatabaze</ownerDesignName>
+<engineerTo>
+<item key="B1B1D5B1-B831-FD39-942C-4EC0E68E1E6B" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="titulPred" id="119F2717-671E-157B-8B19-36A7CC32F94F">
+<createdBy>caval</createdBy>
+<createdTime>2018-04-15 18:14:24 UTC</createdTime>
+<ownerDesignName>semestralkaDatabaze</ownerDesignName>
+<engineerTo>
+<item key="B1B1D5B1-B831-FD39-942C-4EC0E68E1E6B" value="true"/>
+</engineerTo>
+<nullsAllowed>true</nullsAllowed>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_kontakt" id="CCC82358-247A-681F-191E-F61718E0FEF8">
+<createdBy>caval</createdBy>
+<createdTime>2018-04-15 18:22:14 UTC</createdTime>
+<generatorID>5D04F13D-BB6A-532B-AF25-4D985D9ED210</generatorID>
+<ownerDesignName>semestralkaDatabaze</ownerDesignName>
+<engineerTo>
+<item key="B1B1D5B1-B831-FD39-942C-4EC0E68E1E6B" value="true"/>
+</engineerTo>
+<referedAttribute>0C5682F5-AEC8-C60F-4A4F-1E9B524AC746</referedAttribute>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+<Attribute name="id_pracoviste" id="F2090D1F-A0B9-9EB1-A076-99BA0B358340">
+<createdBy>caval</createdBy>
+<createdTime>2018-04-15 21:32:18 UTC</createdTime>
+<generatorID>33140918-BDB3-7B36-B37B-60AC12AB653C</generatorID>
+<ownerDesignName>semestralkaDatabaze</ownerDesignName>
+<engineerTo>
+<item key="B1B1D5B1-B831-FD39-942C-4EC0E68E1E6B" value="true"/>
+</engineerTo>
+<referedAttribute>8FDF5861-9D36-ACFB-8DF8-1C449994973D</referedAttribute>
+<use>0</use>
+<ownDataTypeParameters>,,</ownDataTypeParameters>
+</Attribute>
+</attributes>
+<identifiers itemClass="oracle.dbtools.crest.model.design.logical.CandidateKey">
+<identifier id="09405491-69ED-AFFC-F62F-164E1C598641" name="evid_vyuc PK">
+<createdBy>caval</createdBy>
+<createdTime>2018-04-15 18:14:01 UTC</createdTime>
+<ownerDesignName>semestralkaDatabaze</ownerDesignName>
+<engineerTo>
+<item key="B1B1D5B1-B831-FD39-942C-4EC0E68E1E6B" value="true"/>
+</engineerTo>
+<pk>true</pk>
+<usedAttributes>
+<attributeRef>9F30CB66-389F-FA9E-69F2-9029CE440096</attributeRef>
+</usedAttributes>
+</identifier>
+</identifiers>
+</Entity>

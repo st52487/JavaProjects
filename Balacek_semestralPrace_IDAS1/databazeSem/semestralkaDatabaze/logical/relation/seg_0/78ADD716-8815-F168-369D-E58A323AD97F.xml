@@ -1,0 +1,21 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<Relation class="oracle.dbtools.crest.model.design.logical.Relation" name="KATEGORIE_VLASTNOST" directorySegmentName="seg_0" id="78ADD716-8815-F168-369D-E58A323AD97F">
+<createdBy>caval</createdBy>
+<createdTime>2018-04-25 16:00:41 UTC</createdTime>
+<ownerDesignName>semestralkaDatabaze</ownerDesignName>
+<engineerTo>
+<item key="B1B1D5B1-B831-FD39-942C-4EC0E68E1E6B" value="true"/>
+</engineerTo>
+<sourcePk>53CE9A7F-6E9C-B324-C3BF-04FEBF22FB20</sourcePk>
+<identifying>false</identifying>
+<nameOnSource>má</nameOnSource>
+<nameOnTarget>ukazuje</nameOnTarget>
+<optionalSource>true</optionalSource>
+<optionalTarget>false</optionalTarget>
+<sourceCardinality>1</sourceCardinality>
+<sourceEntity>D2738BAE-0258-7342-63DE-2FE447F3C7D4</sourceEntity>
+<targetCardinalityString>*</targetCardinalityString>
+<targetEntity>9FF54F5B-BEFE-3D98-B868-9A3579B8D82C</targetEntity>
+<transferable>true</transferable>
+<deleteRule>NO ACTION</deleteRule>
+</Relation>

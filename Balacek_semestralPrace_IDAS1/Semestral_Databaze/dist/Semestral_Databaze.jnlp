@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="Semestral_Databaze.jnlp">
+  <information>
+    <title>Semestral_Databaze</title>
+    <vendor>caval</vendor>
+    <description>null</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="Semestral_Databaze.jar" size="3283109" download="eager" />
+    <jar href="lib\ojdbc7.jar" size="3397734" download="eager" />
+  </resources>
+  <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="Semestral_Databaze" >
+    <param name="requiredFXVersion" value="8.0+"/>
+  </applet-desc>
+  <jfx:javafx-desc  width="800" height="600" main-class="semestral_databaze.Semestral_Databaze"  name="Semestral_Databaze" />
+  <update check="always"/>
+</jnlp>
