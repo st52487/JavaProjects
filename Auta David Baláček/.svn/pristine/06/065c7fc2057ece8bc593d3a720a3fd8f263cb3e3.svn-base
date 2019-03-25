@@ -1,0 +1,10 @@
+package alert;
+
+import javafx.scene.control.Alert;
+
+public class ChybovaHlaska {
+
+    public static void zobrazAlert(String error) {
+        new Alert(Alert.AlertType.ERROR, error).showAndWait();
+    }
+}

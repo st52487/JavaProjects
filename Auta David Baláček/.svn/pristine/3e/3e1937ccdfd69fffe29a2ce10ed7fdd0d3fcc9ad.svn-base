@@ -1,0 +1,285 @@
+package kolekce;
+
+import java.util.Iterator;
+import java.util.Objects;
+import java.util.function.Function;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import java.util.stream.Stream;
+import java.util.stream.StreamSupport;
+
+public class Seznam<E> implements ISeznam<E> {
+
+    private final int velikost;
+    private int pocet;
+    private Prvek kdeSem;
+    private Prvek prvni;
+    private Prvek posledni;
+    private Prvek predchozi;
+    private boolean jePrvni;
+
+    public Seznam(int velikost) throws KolekceException {
+        if (velikost <= 0) {
+            throw new KolekceException();
+        }
+        this.velikost = velikost;
+        pocet = 0;
+        prvni = null;
+
+    }
+
+    private class Prvek implements Cloneable {
+
+        private E data;
+        private Prvek dalsi;
+
+        Prvek(E data, Prvek dalsi) {
+            this.data = data;
+            this.dalsi = dalsi;
+        }
+
+        Prvek(E data) {
+            this(data, null);
+        }
+
+        public Object clone() {
+            try {
+                return super.clone();
+            } catch (CloneNotSupportedException e) {
+                return null;
+            }
+        }
+
+    }
+
+    @Override
+    public E najdi(E klic) {
+        if (!jePrazdny()) {
+            kdeSem = prvni;
+            for (int i = 0; i < pocet; i++) {
+                if (kdeSem.data.equals(klic)) {
+                    return (E) kdeSem.data;
+                }
+                try {
+                    prejdiNaDalsi();
+                } catch (KolekceException ex) {
+                }
+            }
+        }
+        return null;
+    }
+
+    @Override
+    public int getVelikost() {
+        return velikost;
+    }
+
+    @Override
+    public int getPocet() {
+        return pocet;
+    }
+
+    @Override
+    public boolean jePrazdny() {
+        return pocet == 0;
+    }
+
+    @Override
+    public boolean jePlny() {
+        return pocet >= velikost;
+    }
+
+    @Override
+    public void pridej(E data) throws KolekceException {
+        Objects.requireNonNull(data);
+        if (data == null) {
+            throw new KolekceException();
+        }
+        if (jePlny()) {
+            throw new KolekceException();
+        }
+        Prvek p = new Prvek(data);
+        pocet++;
+
+        if (prvni == null) {
+            prvni = p;
+            kdeSem = prvni;
+            posledni = prvni;
+            jePrvni = true;
+            return;
+        }
+
+        posledni.dalsi = p;
+        posledni = p;
+    }
+
+    @Override
+    public void prejdiNaDalsi() throws KolekceException {
+        if (jeDalsi()) {
+            predchozi = kdeSem;
+            kdeSem = kdeSem.dalsi;
+        } else {
+            throw new KolekceException();
+        }
+
+    }
+
+    @Override
+    public boolean jeDalsi() throws KolekceException {
+        if (jePrazdny()) {
+            throw new KolekceException();
+        }
+        if (!kdeSem.equals(prvni)) {
+            kdeSem = prvni;
+        }
+        if (kdeSem.dalsi != null) {
+            return true;
+        }
+        return false;
+    }
+
+    @Override
+    public E odeber(E klic) {
+        Objects.requireNonNull(klic);
+        if (prvni == null) {
+            return null;
+        }
+
+        Prvek hledany = prvni;
+        predchozi = null;
+        while (hledany != null) {
+            if (hledany.data.equals(klic)) {
+                break;
+            }
+            predchozi = hledany;
+            hledany = hledany.dalsi;
+        }
+        E data = null;
+        if (predchozi == posledni) {
+            return null;
+        }
+        data = hledany.data;
+        pocet--;
+        if (hledany == prvni) {
+            prvni = prvni.dalsi;
+        } else if (hledany == posledni) {
+            predchozi.dalsi = null;
+            posledni = predchozi;
+        } else {
+            predchozi.dalsi = hledany.dalsi;
+        }
+        return data;
+    }
+
+    @Override
+    public void nastavPrvni() throws KolekceException {
+        if (jePrazdny()) {
+            throw new KolekceException();
+        }
+        kdeSem = prvni;
+        predchozi = null;
+    }
+
+    @Override
+    public E zpristupni() throws KolekceException {
+        if (jePrazdny()) {
+            throw new KolekceException();
+        }
+        return kdeSem.data;
+    }
+
+    @Override
+    public void vlozZa(E data) throws KolekceException {
+        if (jePrazdny()) {
+            throw new KolekceException();
+        }
+
+        Prvek prvekZa = new Prvek(data, kdeSem.dalsi);
+        kdeSem.dalsi = prvekZa;
+        pocet++;
+    }
+
+    @Override
+    public void vlozPred(E data) throws KolekceException {
+        if (jePlny()) {
+            throw new KolekceException();
+        } else {
+            Prvek prvek = new Prvek(data, kdeSem);
+            predchozi.dalsi = prvek;
+            predchozi = prvek;
+            pocet++;
+        }
+    }
+
+    @Override
+    public Iterator<E> iterator() {
+        Iterator<E> iterator = new Iterator<E>() {
+
+            Prvek index = prvni;
+
+            public boolean hasNext() {
+                return index != null;
+            }
+
+            @Override
+            public E next() {
+                if (hasNext()) {
+                    E data = index.data;
+                    index = index.dalsi;
+                    return data;
+                }
+                return null;
+            }
+        };
+        return iterator;
+    }
+
+    @Override
+    public void zrus() {
+        prvni = null;
+        kdeSem = null;
+        posledni = null;
+        pocet = 0;
+    }
+
+    @Override
+    public E[] toArray() {
+        E[] pole = (E[]) new Object[pocet];
+
+        Prvek prvek = prvni;
+        for (int i = 0; i < pocet; i++) {
+
+            pole[i] = prvek.data;
+
+            prvek = prvek.dalsi;
+        }
+
+        return pole;
+    }
+
+    @Override
+    public E[] toArray(E[] array) throws IllegalArgumentException {
+        if (array.length <= pocet) {
+            throw new IllegalArgumentException();
+        }
+        Prvek pom = prvni;
+
+        for (int i = 0; i < pocet; i++) {
+            array[i] = pom.data;
+            pom = pom.dalsi;
+        }
+        return array;
+    }
+
+    @Override
+    public E[] toArray(Function<Integer, E[]> createFunction) {
+        Objects.requireNonNull(createFunction, "Není funkce");
+        E[] pole = createFunction.apply(pocet);
+        int i = 0;
+        for (E e : this) {
+            pole[i] = e;
+        }
+        return pole;
+    }
+
+}

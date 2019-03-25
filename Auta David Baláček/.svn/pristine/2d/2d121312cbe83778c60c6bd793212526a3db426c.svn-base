@@ -1,0 +1,18 @@
+package automobily;
+
+public final class NahraniAutomobiluTest {
+
+    private NahraniAutomobiluTest(){}
+    
+    public static Automobil[] getTest() {
+        Automobil[] automobily = {
+            new Dodavka(6, BarvaAuta.MODRÁ, 487, "turbo"),
+            new OsobniAutomobil(4, BarvaAuta.RŮŽOVÁ, "6S2 547", true),
+            new OsobniAutomobil(7, BarvaAuta.FIALOVÁ, "68sw 4ds", false),
+            new NakladniAutomobil(10, BarvaAuta.BÍLA, 487, true),
+            new NakladniAutomobil(12, BarvaAuta.ŽLUTÁ, 100, false)
+        };
+        
+        return automobily;
+    }
+}

@@ -1,0 +1,40 @@
+package automobily;
+
+import java.io.Serializable;
+import kolekce.KolekceException;
+import kolekce.Seznam;
+
+public abstract class Automobily implements Serializable {
+
+    private int pocetKol;
+    private boolean funkcni;
+    private TypAutomobilu typAutomobilu;
+    private BarvaAuta barva;
+    
+
+    public Automobily(TypAutomobilu typAutomobilu, int pocetKol, BarvaAuta barva) {
+        this.typAutomobilu = typAutomobilu;
+        this.pocetKol = pocetKol;
+        this.barva = barva;
+    }
+
+    public int getPocetKol() {
+        return pocetKol;
+    }
+
+    public BarvaAuta getBarva() {
+        return barva;
+    }
+
+
+    public TypAutomobilu getTyp() {
+        return typAutomobilu;
+    }
+
+    @Override
+    public String toString() {
+        return "Typ automobilu:  " + typAutomobilu.name().toString().toLowerCase() + ", Počet kol: " + pocetKol
+                + ", Barva: " + barva.toString().toLowerCase() + ", ";
+    }
+
+}

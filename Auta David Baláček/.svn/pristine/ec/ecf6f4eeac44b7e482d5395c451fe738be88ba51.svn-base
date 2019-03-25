@@ -1,0 +1,123 @@
+package gui;
+
+import automobily.BarvaAuta;
+import automobily.TypAutomobilu;
+import java.util.Arrays;
+import javafx.collections.FXCollections;
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
+import javafx.geometry.Orientation;
+import javafx.scene.control.Button;
+import javafx.scene.control.CheckBox;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.Separator;
+import javafx.scene.control.TextField;
+import javafx.scene.control.ToggleGroup;
+import javafx.scene.layout.GridPane;
+
+public final class Komponenty {
+    
+    private Komponenty() {
+    }
+    
+    public static TextField addRowTestField(GridPane grid, String nazev,
+            int radek) {
+        grid.add(new Label(nazev), 0, radek);
+        TextField textField = new TextField();
+        textField.setPrefSize(150, 20);
+        grid.add(textField, 1, radek);
+        return textField;
+    }
+    
+    public static TextField addRowTestField(GridPane grid, String nazev,
+            String text, int radek) {
+        TextField textField = addRowTestField(grid, nazev, radek);
+        textField.setText(text);
+        return textField;
+    }
+    
+    public static <T> ComboBox<T> addRowComboBox(GridPane grid, String nazev,
+            int radek, Enum[] enumList) {
+        grid.add(new Label(nazev), 0, radek);
+        ComboBox<T> comboBox
+                = new ComboBox(
+                        FXCollections.observableList(Arrays.asList(enumList))
+                );
+        comboBox.setPrefSize(150, 20);
+        comboBox.getSelectionModel().selectFirst();
+        grid.add(comboBox, 1, radek);
+        return comboBox;
+    }
+    
+        public static <T> ComboBox<TypAutomobilu> addRowComboBox(GridPane grid,
+                String nazev,
+            int radek, Enum[] enumList, TypAutomobilu typAutomobilu,
+            EventHandler<ActionEvent> handler) {
+        ComboBox<TypAutomobilu> comboBox = addRowComboBox(grid, nazev, radek, 
+                enumList);
+        comboBox.setValue(typAutomobilu);
+        comboBox.setOnAction(handler);
+        return comboBox;
+    }
+    
+    public static <T> ComboBox<BarvaAuta> addRowComboBox(GridPane grid,
+            String nazev, int radek, Enum[] enumList, BarvaAuta barvaAuta) {
+        ComboBox<BarvaAuta> comboBox = addRowComboBox(grid, nazev, radek,
+                enumList);
+        comboBox.setValue(barvaAuta);
+        return comboBox;
+    }
+    
+    public static <T> ComboBox<TypAutomobilu> addRowComboBox(GridPane grid,
+            String nazev, int radek, Enum[] enumList, 
+            TypAutomobilu typAutomobilu) {
+        grid.add(new Label(nazev), 0, radek);
+        ComboBox<TypAutomobilu> comboBox = addRowComboBox(grid, nazev, radek,
+                enumList);
+        comboBox.setValue(typAutomobilu);
+        return comboBox;
+    }
+    
+    public static CheckBox addRowCheckBox(GridPane grid, String nazev,
+            int radek, boolean select) {
+        grid.add(new Label(nazev), 0, radek);
+        CheckBox checkBox = new CheckBox();
+        checkBox.setSelected(select);
+        checkBox.setPrefSize(150, 20);
+        grid.add(checkBox, 1, radek);
+        return checkBox;
+    }
+    
+    public static Button addButton(String text,
+         EventHandler<ActionEvent> handler) {
+        Button button = new Button(text);
+        button.setOnAction(handler);
+        button.setPrefSize(150, 20);
+        return button;
+    }
+    
+        public static Button addButton(String text, double sirka, double vyska,
+         EventHandler<ActionEvent> handler) {
+        Button button = new Button(text);
+        button.setOnAction(handler);
+        button.setPrefSize(sirka, vyska);
+        return button;
+    }
+    
+    public static RadioButton addRadioButton(String text, ToggleGroup grop,
+         EventHandler<ActionEvent> handler, Boolean selected){
+        RadioButton radioButton = new RadioButton(text);
+        radioButton.setToggleGroup(grop);
+        radioButton.setOnAction(handler);
+        radioButton.setSelected(selected);
+        return radioButton;
+    }
+    
+    public static Separator addSeparator(Orientation orientation){
+        Separator separator = new Separator(orientation);
+        separator.setVisible(false);
+        return separator;
+    }
+}

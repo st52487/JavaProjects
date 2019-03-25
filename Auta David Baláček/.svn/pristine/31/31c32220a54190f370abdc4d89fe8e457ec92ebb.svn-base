@@ -1,0 +1,173 @@
+package gui;
+
+import automobily.Adapter;
+import automobily.Automobily;
+import java.io.IOException;
+import java.util.Iterator;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.application.Application;
+import javafx.scene.Scene;
+import javafx.scene.control.Alert;
+import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
+import javafx.scene.control.RadioButton;
+import javafx.scene.control.ToggleGroup;
+import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.stage.Stage;
+
+public class HlavniPogramGUI extends Application {
+
+    private ListView<String> list;
+    private Adapter adapter = new Adapter();
+
+    private final ToggleGroup group = new ToggleGroup();
+
+    private DialogNovy dialogNovy;
+    private DialogUloz dialogUloz;
+    private DialogObnov dialogObnov;
+    private DialogEdituj dialogEdituj;
+
+    private Button btnUloz;
+    private Button btnSmaz;
+    private Button btnTest;
+    private Button btnObnov;
+    private Button btnNovy;
+    private Button btnEdituj;
+
+    private Iterator iterator;
+
+    private RadioButton osobni;
+    private RadioButton dodavka;
+    private RadioButton nakladni;
+    private RadioButton zadny;
+
+    private HBox hbox;
+    private VBox vb;
+    private BorderPane border;
+
+    public static void main(String[] args) {
+        launch(args);
+    }
+
+    @Override
+    public void start(Stage primaryStage) {
+        primaryStage.setTitle("Evidence automobilů");
+
+        hbox = new HBox(10);
+        vb = new VBox(10);
+        border = new BorderPane();
+        list = new ListView<>();
+
+        vb.setPadding(new javafx.geometry.Insets(15, 40, 15, 12));
+        hbox.setPadding(new javafx.geometry.Insets(15, 12, 15, 100));
+
+        osobni = new RadioButton("Osobní Automobil");
+        osobni.setToggleGroup(group);
+        dodavka = new RadioButton("Dodávka");
+        dodavka.setToggleGroup(group);
+        nakladni = new RadioButton("Nákladní Automobil");
+        nakladni.setToggleGroup(group);
+        zadny = new RadioButton("Žádný filtr");
+        zadny.setToggleGroup(group);
+        zadny.setSelected(true);
+
+        btnUloz = new Button("Ulož");
+        btnUloz.setPrefSize(100, 20);
+        vb.getChildren().add(btnUloz);
+        btnSmaz = new Button("Smaž");
+        btnSmaz.setPrefSize(100, 20);
+        vb.getChildren().add(btnSmaz);
+        btnTest = new Button("Test");
+        btnTest.setPrefSize(100, 20);
+        vb.getChildren().add(btnTest);
+        btnObnov = new Button("Obnov");
+        btnObnov.setPrefSize(100, 20);
+        vb.getChildren().add(btnObnov);
+        btnNovy = new Button("Nový");
+        btnNovy.setPrefSize(100, 20);
+        vb.getChildren().add(btnNovy);
+        btnEdituj = new Button("Edituj");
+        btnEdituj.setPrefSize(100, 20);
+        vb.getChildren().add(btnEdituj);
+
+        hbox.getChildren().add(osobni);
+        hbox.getChildren().add(dodavka);
+        hbox.getChildren().add(nakladni);
+        hbox.getChildren().add(zadny);
+
+        btnTest.setOnAction((event) -> {
+            iterator = getIterator();
+            smaz();
+            adapter.clickTest();
+            iterator = getIterator();
+            nacti();
+        });
+
+        btnSmaz.setOnAction((event) -> {
+        });
+
+        btnEdituj.setOnAction((event) -> {
+            dialogEdituj = new DialogEdituj();
+        });
+
+        btnUloz.setOnAction((event) -> {
+            dialogUloz = new DialogUloz();
+          
+            try {
+                adapter.serializuj();
+                
+            } catch (IOException ex) {
+               alert();
+            }
+        });
+
+        btnObnov.setOnAction((event) -> {
+            dialogObnov = new DialogObnov();
+        });
+
+        btnNovy.setOnAction((event) -> {
+            dialogNovy = new DialogNovy(adapter);
+            iterator = getIterator();
+            smaz();
+            iterator = getIterator();
+            nacti();
+        });
+        
+        list.setOnMouseClicked((event) -> {
+            
+            System.out.print(list.getSelectionModel().getSelectedIndex());
+        });
+
+        border.setRight(vb);
+        border.setTop(hbox);
+        border.setCenter(list);
+
+        Scene scene = new Scene(border, 840, 560);
+        primaryStage.setScene(scene);
+        primaryStage.show();
+    }
+
+    private void smaz() {
+        while (iterator.hasNext()) {
+            list.getItems().remove(iterator.next().toString());
+        }
+    }
+
+    private void nacti() {
+        while (iterator.hasNext()) {
+            list.getItems().add(iterator.next().toString());
+        }
+    }
+    
+   private void alert(){
+       Alert alert = new Alert(Alert.AlertType.ERROR);
+       alert.setTitle("Chyba!");
+   }
+
+    private Iterator getIterator() {
+        return iterator = adapter.getSeznam().iterator();
+    }
+}

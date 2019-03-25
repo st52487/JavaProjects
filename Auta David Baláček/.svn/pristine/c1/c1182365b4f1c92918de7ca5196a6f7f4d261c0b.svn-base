@@ -1,0 +1,36 @@
+
+package automobily;
+
+
+public class OsobniAutomobil extends Automobily{
+    
+    private String znackaAuta;
+    private BarvaAuta barvaAuta;
+    private String funkcni;
+
+    public OsobniAutomobil(TypAutomobilu typAutomobilu, int pocetKol, BarvaAuta barva,
+            String znackaAuta, String funkcni) {
+        super(typAutomobilu.OSOBNI, pocetKol, barva);
+        this.znackaAuta = znackaAuta;
+        this.funkcni= funkcni;
+    }
+
+    public String getZnackaAuta() {
+        return znackaAuta;
+    }
+
+    public BarvaAuta getBarvaAuta() {
+        return barvaAuta;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + " Znacka auta: " + znackaAuta + ", Funkční: " 
+                + funkcni;
+    }
+    
+    
+    
+    
+    
+}

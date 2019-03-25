@@ -1,0 +1,105 @@
+package automobily;
+
+import gui.DialogNovy;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectOutputStream;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javafx.scene.control.Alert;
+import kolekce.ISeznam;
+import kolekce.KolekceException;
+import kolekce.Seznam;
+
+public class Adapter {
+
+    private ISeznam<Automobily> seznam;
+    private DialogNovy dialogNovy;
+    private int pocetAutomobilu = 12;
+    private final String FILE = "file.bin";
+
+    public Adapter() {
+        try {
+            seznam = new Seznam<>(pocetAutomobilu);
+        } catch (KolekceException ex) {
+            alert().showAndWait();
+        }
+    }
+
+    public Seznam<Automobily> getSeznam() {
+        return (Seznam<Automobily>) seznam;
+    }
+
+    public void clickTest() {
+        try {
+            seznam.pridej(new Dodavka(TypAutomobilu.DODAVKA, 0, BarvaAuta.MODRÁ, 487, "sasa"));
+            seznam.pridej(new OsobniAutomobil(TypAutomobilu.OSOBNI, 4, BarvaAuta.RŮŽOVÁ, "6S2 547", "ano"));
+            seznam.pridej(new OsobniAutomobil(TypAutomobilu.OSOBNI, 7, BarvaAuta.FIALOVÁ, "68sw 4ds", "ne"));
+            seznam.pridej(new NakladniAutomobil(TypAutomobilu.NAKLADNI, 10, BarvaAuta.BÍLA, 487, "ano"));
+            seznam.pridej(new NakladniAutomobil(TypAutomobilu.NAKLADNI, 12, BarvaAuta.ŽLUTÁ, 100, "ne"));
+
+        } catch (KolekceException e) {
+            alert().showAndWait();
+        }
+
+    }
+
+    public void clickPridejOsobni(TypAutomobilu typAutomobilu, int pocetKol, BarvaAuta barva,
+            String znackaAuta, String funkcni) throws KolekceException {
+        try {
+            seznam.pridej(new OsobniAutomobil(typAutomobilu, pocetKol, barva, znackaAuta, funkcni));
+
+        } catch (KolekceException e) {
+            alert().showAndWait();
+        }
+    }
+
+    public void clickPridejDodavka(TypAutomobilu typAutomobilu, int pocetKol, BarvaAuta barva,
+            int hmotnost, String typMotoru) throws KolekceException {
+        try {
+            seznam.pridej(new Dodavka(typAutomobilu, pocetKol, barva, hmotnost, typMotoru));
+        } catch (KolekceException e) {
+            alert().showAndWait();
+        }
+    }
+
+    public void clickPridejNakladni(TypAutomobilu typAutomobilu, int pocetKol, BarvaAuta barva,
+            int pocetKoni, String nahonNaVsechny) throws KolekceException {
+        seznam.pridej(new NakladniAutomobil(typAutomobilu, pocetKol, barva, pocetKoni, nahonNaVsechny));
+    }
+
+    private Alert alert() {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Chyba");
+        return alert;
+    }
+
+    public void serializuj() throws FileNotFoundException, IOException {
+        FileOutputStream fileOut = null;
+        ObjectOutputStream out = null;
+        try {
+            fileOut = new FileOutputStream(FILE);
+            out = new ObjectOutputStream(fileOut);
+
+            out.writeInt(seznam.getPocet());
+
+            seznam.nastavPrvni();
+
+            Automobily automobil = seznam.zpristupni();
+            while (automobil != null) {
+                out.writeObject(automobil);
+                if (!seznam.jeDalsi()) {
+                    break;
+                }
+                seznam.prejdiNaDalsi();
+                automobil = seznam.zpristupni();
+            }
+        } catch (KolekceException e) {
+            alert().showAndWait();
+        } 
+        fileOut.close();
+        out.close();
+    }
+
+}

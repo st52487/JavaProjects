@@ -1,0 +1,29 @@
+package automobily;
+
+public class NakladniAutomobil extends Automobily {
+
+    private int pocetKoni;
+    private String nahonNaVsechny;
+
+    public NakladniAutomobil(TypAutomobilu typAutomobilu, int pocetKol, BarvaAuta barva,
+            int pocetKoni, String nahonNaVsechny) {
+        super(typAutomobilu.NAKLADNI, pocetKol, barva);
+        this.pocetKoni = pocetKoni;
+        this.nahonNaVsechny = nahonNaVsechny;
+    }
+
+    public int getPocetKoni() {
+        return pocetKoni;
+    }
+
+    public String isNahonNaVsechny() {
+        return nahonNaVsechny;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + " Pocet koni: " + pocetKoni
+                + ", Nahon na vsechny: " + nahonNaVsechny;
+    }
+
+}

@@ -1,0 +1,30 @@
+package automobily;
+
+public class Dodavka extends Automobily {
+
+    private int hmotnost;
+    private String typMotoru;
+
+    public Dodavka(TypAutomobilu typAutomobilu, int pocetKol, BarvaAuta barva,
+            int hmotnost, String typMotoru) {
+        super(typAutomobilu.DODAVKA, pocetKol, barva);
+        this.hmotnost = hmotnost;
+        this.typMotoru = typMotoru;
+    }
+
+    public int getVelikost() {
+        return hmotnost;
+    }
+
+    public String getTypMotoru() {
+        return typMotoru;
+    }
+    
+
+    @Override
+    public String toString() {
+        return super.toString() + " Hmotnost: " + hmotnost + ", Typ motoru: "
+                + typMotoru;
+    }
+
+}

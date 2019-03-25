@@ -1,0 +1,22 @@
+
+package gui;
+
+import javafx.scene.control.Alert;
+
+
+public class DialogUloz {
+    public DialogUloz() {
+        vytvor();
+    }
+    
+    private void vytvor(){
+//        if(serializovano == true){
+//            
+//        }
+        Alert alert = new Alert(Alert.AlertType.INFORMATION);
+        alert.setTitle("Evidence automobilů");
+        alert.setHeaderText("Uložení proběhlo úspěšně!");
+  //      alert.setContentText("Message for you");
+        alert.showAndWait();
+    }
+}

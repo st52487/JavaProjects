@@ -1,0 +1,37 @@
+
+package automobily;
+
+
+public class Valnik extends Automobil{
+    
+    private int stupenZniceni;
+    private String druhVyfuku;
+    public Valnik(int maxPocetPolozek, boolean jede, int pocetKol, BarvaAuta barva, int stupenZniceni,
+            String druhVyfuku) {
+        super(maxPocetPolozek, jede, TypAutomobilu.VALNIK, pocetKol, barva);
+        this.stupenZniceni = stupenZniceni;
+        this.druhVyfuku = druhVyfuku;
+    }
+
+    public int getStupenZniceni() {
+        return stupenZniceni;
+    }
+
+    public String getDruhVyfuku() {
+        return druhVyfuku;
+    }
+
+    public void setStupenZniceni(int stupenZniceni) {
+        this.stupenZniceni = stupenZniceni;
+    }
+
+    public void setDruhVyfuku(String druhVyfuku) {
+        this.druhVyfuku = druhVyfuku;
+    }
+
+    @Override
+    public String toString() {
+        return super.toString() + " Stupeň zničení: " + stupenZniceni + 
+                ", Druh vyfuku: " + druhVyfuku;
+    }
+}

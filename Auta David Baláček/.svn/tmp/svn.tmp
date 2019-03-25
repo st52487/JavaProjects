@@ -1,0 +1,127 @@
+package automobily;
+
+import gui.DialogNovy;
+import java.io.FileInputStream;
+import java.io.FileOutputStream;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.util.Iterator;
+import java.util.function.Predicate;
+import javafx.scene.control.Alert;
+import javafx.scene.control.ListView;
+import kolekce.ISeznam;
+import kolekce.KolekceException;
+import kolekce.Seznam;
+
+public class Adapter {
+
+    private ISeznam<Automobily> seznam;
+    private DialogNovy dialogNovy;
+    private int pocetAutomobilu = 5;
+    private final String FILE = "file.bin";
+
+    public Adapter() {
+        try {
+            seznam = new Seznam<>(pocetAutomobilu);
+        } catch (KolekceException ex) {
+            alert().showAndWait();
+        }
+    }
+
+    public Seznam<Automobily> getSeznam() {
+        return (Seznam<Automobily>) seznam;
+    }
+
+    public void clickTest() {
+        try {
+            seznam.zrus();
+            seznam.pridej(new Dodavka(TypAutomobilu.DODAVKA, 0, BarvaAuta.MODRÁ, 487, "turbo"));
+            seznam.pridej(new OsobniAutomobil(TypAutomobilu.OSOBNI, 4, BarvaAuta.RŮŽOVÁ, "6S2 547", true));
+            seznam.pridej(new OsobniAutomobil(TypAutomobilu.OSOBNI, 7, BarvaAuta.FIALOVÁ, "68sw 4ds", false));
+            seznam.pridej(new NakladniAutomobil(TypAutomobilu.NAKLADNI, 10, BarvaAuta.BÍLA, 487, true));
+            seznam.pridej(new NakladniAutomobil(TypAutomobilu.NAKLADNI, 12, BarvaAuta.ŽLUTÁ, 100, false));
+
+        } catch (KolekceException e) {
+            alert().showAndWait();
+        }
+
+    }
+
+    public void clickPridejOsobni(TypAutomobilu typAutomobilu, int pocetKol, BarvaAuta barva,
+            String znackaAuta, boolean funkcni) throws KolekceException {
+        seznam.pridej(new OsobniAutomobil(typAutomobilu, pocetKol, barva, znackaAuta, funkcni));
+    }
+
+    public void clickPridejDodavka(TypAutomobilu typAutomobilu, int pocetKol, BarvaAuta barva,
+            int hmotnost, String typMotoru) throws KolekceException {
+        try {
+            seznam.pridej(new Dodavka(typAutomobilu, pocetKol, barva, hmotnost, typMotoru));
+        } catch (KolekceException e) {
+            alert().showAndWait();
+        }
+    }
+
+    public void clickPridejNakladni(TypAutomobilu typAutomobilu, int pocetKol, BarvaAuta barva,
+            int pocetKoni, boolean nahonNaVsechny) throws KolekceException {
+        seznam.pridej(new NakladniAutomobil(typAutomobilu, pocetKol, barva, pocetKoni, nahonNaVsechny));
+    }
+
+    private Alert alert() {
+        Alert alert = new Alert(Alert.AlertType.ERROR);
+        alert.setTitle("Chyba");
+        return alert;
+    }
+
+    public void serializuj() {
+        try {
+            FileOutputStream fileOut = null;
+            ObjectOutputStream out = null;
+            fileOut = new FileOutputStream(FILE);
+            out = new ObjectOutputStream(fileOut);
+
+            out.writeInt(seznam.getPocet());
+
+            Iterator iterator = seznam.iterator();
+
+            while (iterator.hasNext()) {
+                out.writeObject(iterator.next());
+            }
+
+            fileOut.close();
+            out.close();
+        } catch (IOException ex) {
+        }
+    }
+
+    public void deserializuj() {
+        seznam.zrus();
+        try {
+            FileInputStream fileIn = null;
+            ObjectInputStream in = null;
+            fileIn = new FileInputStream(FILE);
+            in = new ObjectInputStream(fileIn);
+
+            int pocet = in.readInt();
+
+            for (int i = 0; i < pocet; i++) {
+                seznam.pridej((Automobily) in.readObject());
+            }
+
+            fileIn.close();
+            in.close();
+        } catch (KolekceException | ClassNotFoundException | IOException ex) {
+        }
+    }
+
+    public void smaz(Automobily autmobil) {
+        seznam.odeber(autmobil);
+    }
+
+    public void vypisFiltrovanyAutomobil(ListView<Automobily> list, Predicate<Automobily> filter) {
+        list.getItems().clear();
+        seznam.stream().filter(filter)
+                .forEach(t -> list.getItems().add(t));
+    }
+
+}
