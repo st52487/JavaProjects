@@ -1,0 +1,135 @@
+package zpracovani;
+
+import vycty.enumPozice;
+import vycty.enumReorg;
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+import knihovna.Alerts;
+import knihovna.REO;
+import kolekce.AbstrDoubleList;
+import kolekce.IAbstrDoubleList;
+import procesy.IProces;
+
+public class VyrobniProces implements IVyrobniProces {
+
+    private final IAbstrDoubleList<IProces> SEZNAM;
+    private static IVyrobniProces vyrobniProces;
+
+    private VyrobniProces() {
+        SEZNAM = new AbstrDoubleList<>();
+    }
+
+    public static IVyrobniProces getInstance() {
+        if (vyrobniProces == null) {
+            try {
+                vyrobniProces = new VyrobniProces();
+            } catch (NullPointerException ex) {
+                knihovna.Alerts.showErrorAlert("Chyba!", "Nastala chyba při vytváření "
+                        + "třídy VyrobniProcesy!");
+            }
+        }
+        return vyrobniProces;
+    }
+
+    @Override
+    public int importDat(String soubor) {
+        int pocetZaznamu = knihovna.IO.nahrajZeSouboru(soubor);
+        return pocetZaznamu;
+    }
+
+    @Override
+    public Iterator iterator() {
+        return SEZNAM.iterator();
+    }
+
+    @Override
+    public void reorganizuj(int kriterium, enumReorg reorganizace) {
+        int pocet;
+        if (!SEZNAM.jePrazdny()) {
+            try {
+                switch (reorganizace) {
+                    case AGREGACE:
+                        REO.nahazejDoZasobnikuAgregace(SEZNAM, kriterium);
+                        pocet = REO.agreguj(SEZNAM);
+                        Alerts.confirmAlert("Agregace proběhla!", "Bylo agregováno "
+                                + pocet + " procesů!");
+                        break;
+                    case DEKOMPOZICE:
+                        REO.nahazejDoZasobnikuDekompozice(SEZNAM, kriterium);
+                        pocet = REO.dekompozicuj(SEZNAM);
+                        Alerts.confirmAlert("Dekompozice proběhla!", "Bylo dekompozicováno "
+                                + pocet + " procesů!");
+                        break;
+                }
+            } catch (IAbstrDoubleList.ListException ex) {
+                Alerts.showErrorAlert("Chyba", "Něco se pokazilo...", "Při "
+                        + "reorganizaci nastala vyjimka!");
+            }
+        } else {
+            Alerts.showErrorAlert("Chyba", "Nemužete reorganizovat pokud je seznam prázdný!");
+        }
+    }
+
+    @Override
+    public void vlozProces(IProces proces, enumPozice pozice
+    ) {
+        try {
+            switch (pozice) {
+                case PRVNI:
+                    SEZNAM.vlozPrvni(proces);
+                    break;
+                case POSLEDNI:
+                    SEZNAM.vlozPosledni(proces);
+                    break;
+                case DALSI:
+                    SEZNAM.vlozNaslednika(proces);
+                    break;
+                case PREDCHOZI:
+                    SEZNAM.vlozPredchudce(proces);
+                    break;
+            }
+        } catch (IAbstrDoubleList.ListException | NoSuchElementException ex) {
+            knihovna.Alerts.showErrorAlert("Chyba", "Vkladani se nezdařilo",
+                    "Ve tride VyrobniProcesy nastala chyba!");
+        }
+    }
+
+    @Override
+    public int vratPocetPolozek() {
+        int pocet = 0;
+        final IVyrobniProces proces = VyrobniProces.getInstance();
+        Iterator<IProces> iterator = proces.iterator();
+        while (iterator.hasNext()) {
+            iterator.next();
+            pocet++;
+        }
+        return pocet;
+    }
+
+    @Override
+    public void zrus() {
+        SEZNAM.zrus();
+    }
+
+    @Override
+    public void zrusProces(IProces proces) throws IAbstrDoubleList.ListException {
+        SEZNAM.zpristupniPrvni();
+        while (SEZNAM.zpristupniAktualni() != null) {
+            if (SEZNAM.zpristupniAktualni().equals(proces)) {
+                SEZNAM.odeberAktualni();
+                break;
+            }
+            SEZNAM.zpristupniNaslednika();
+        }
+    }
+
+    @Override
+    public void serializuj() {
+        knihovna.Serializace.serializuj(SEZNAM);
+    }
+
+    @Override
+    public void deserializuj() {
+        knihovna.Serializace.deserializuj(SEZNAM);
+    }
+}

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="559.0" prefWidth="1082.0" xmlns="http://javafx.com/javafx/9" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gui.FXMLDocumentController">
+   <right>
+      <VBox fx:id="vbox" alignment="CENTER" prefHeight="559.0" prefWidth="231.0" spacing="10.0" style="-fx-background-color: #dcdcdc;" BorderPane.alignment="CENTER">
+         <children>
+            <Button fx:id="btnPridej" mnemonicParsing="false" onAction="#pridej" prefHeight="40.0" prefWidth="120.0" text="Nový" />
+            <Button fx:id="btnSmazJeden" mnemonicParsing="false" onAction="#smazJeden" prefHeight="40.0" prefWidth="120.0" text="Smaz" />
+            <Button fx:id="btnZrus" mnemonicParsing="false" onAction="#zrusSeznam" prefHeight="40.0" prefWidth="120.0" text="Zrus vse" />
+            <Button fx:id="btnUloz" mnemonicParsing="false" onAction="#ulozit" prefHeight="40.0" prefWidth="120.0" text="Uloz" />
+            <Button fx:id="btnNahraj" mnemonicParsing="false" onAction="#nahraj" prefHeight="40.0" prefWidth="120.0" text="Nahraj" />
+            <Button fx:id="btnImportuj" mnemonicParsing="false" onAction="#importujZeSouboru" prefHeight="40.0" prefWidth="120.0" text="Importuj" />
+            <Button fx:id="btnTest" mnemonicParsing="false" onAction="#nahrajTest" prefHeight="40.0" prefWidth="120.0" text="Test" />
+            <Button fx:id="btnReorganizuj" mnemonicParsing="false" onAction="#reorganizuj" prefHeight="40.0" prefWidth="120.0" text="Reorganizuj" />
+         </children>
+      </VBox>
+   </right>
+   <center>
+      <ListView fx:id="listView" prefHeight="418.0" prefWidth="814.0" BorderPane.alignment="CENTER" />
+   </center>
+   <top>
+      <HBox fx:id="hbox2" alignment="CENTER_LEFT" prefHeight="64.0" prefWidth="1082.0" BorderPane.alignment="CENTER" />
+   </top>
+   <bottom>
+      <HBox fx:id="hbox3" prefHeight="30.0" prefWidth="1082.0" BorderPane.alignment="CENTER" />
+   </bottom>
+   <left>
+      <HBox fx:id="hbox1" prefHeight="418.0" prefWidth="36.0" BorderPane.alignment="CENTER" />
+   </left>
+</BorderPane>

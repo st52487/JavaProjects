@@ -1,0 +1,292 @@
+package kolekce;
+
+import java.util.NoSuchElementException;
+import kolekce.IAbstrDoubleList;
+import kolekce.AbstrDoubleList;
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+public class SeznamTest {
+
+    private AbstrDoubleList seznam;
+
+    public SeznamTest() {
+    }
+
+    @BeforeClass
+    public static void setUpClass() {
+    }
+
+    @AfterClass
+    public static void tearDownClass() {
+    }
+
+    @Before
+    public void setUp() {
+        seznam = new AbstrDoubleList();
+    }
+
+    @After
+    public void tearDown() {
+    }
+
+    @Test
+    public void testJePrazdny() {
+        System.out.println("jePrazdny");
+        assertEquals(true, seznam.jePrazdny());
+        seznam.vlozPrvni(5);
+        System.out.println(seznam.zpristupniPrvni());
+        assertEquals(false, seznam.jePrazdny());
+    }
+
+    @Test
+    public void testZrus() {
+        System.out.println("zrus");
+        SeznamTest data = new SeznamTest();
+        seznam.vlozPrvni(data);
+        System.out.println(seznam.zpristupniPrvni());
+        seznam.zrus();
+        assertEquals(true, seznam.jePrazdny());
+    }
+
+    @Test(expected = NullPointerException.class)
+    public void testVlozNaPrvni() {
+        System.out.println("vlozNaPrvni");
+        seznam.vlozPrvni(null);
+        assertNull(seznam);
+    }
+
+    @Test
+    public void testVlozNaPrvni2() {
+        System.out.println("vlozNaprvni2");
+        seznam.vlozPrvni(5);
+        seznam.vlozPrvni(15);
+        seznam.vlozPrvni(7);
+        assertEquals(7, seznam.zpristupniPrvni());
+    }
+    
+    @Test(expected = IAbstrDoubleList.ListException.class)
+    public void testVlozPredchudce() throws IAbstrDoubleList.ListException{
+        System.out.println("vlozPredchudce");
+        seznam.vlozPredchudce(null);
+        assertNull(seznam);
+    }
+    
+    @Test(expected = NoSuchElementException.class)
+    public void testVlozPredchudce2() throws IAbstrDoubleList.ListException{
+        System.out.println("vlozPredchudce2");
+        seznam.zpristupniAktualni();
+    }
+    
+    @Test
+    public void testVlozPredchudce3() throws IAbstrDoubleList.ListException{
+        System.out.println("vlozPredchudce3");
+        seznam.vlozPrvni(5);
+        seznam.vlozPredchudce(10);
+        SeznamTest data = new SeznamTest();
+        seznam.vlozPredchudce(data);
+        assertEquals(data, seznam.zpristupniPredchudce());
+    }
+    
+    @Test(expected = NullPointerException.class)
+    public void testVlozNasledovnika() throws NoSuchElementException, IAbstrDoubleList.ListException{
+        System.out.println("vlozNasledovnika");
+        seznam.vlozNaslednika(null);
+        assertNull(seznam.zpristupniNaslednika());
+    }
+    
+    @Test(expected = IAbstrDoubleList.ListException.class)
+    public void testVlozNasledovnika2() throws NoSuchElementException, IAbstrDoubleList.ListException{
+        System.out.println("vlozNasledovnika2");
+        seznam.vlozPosledni(5);
+        seznam.zpristupniAktualni();
+    }
+    
+     @Test
+    public void testVlozNasledovnika3() throws NoSuchElementException, IAbstrDoubleList.ListException{
+        System.out.println("vlozNasledovnika3");
+        seznam.vlozPrvni(5);
+        SeznamTest expResult = new SeznamTest();
+        seznam.vlozNaslednika(expResult);
+        SeznamTest data = new SeznamTest();
+        assertEquals(expResult, seznam.zpristupniNaslednika());
+    }
+    
+    @Test(expected = NullPointerException.class)
+    public void vlozPosledni(){
+        System.out.println("vlozPosledni");
+        seznam.vlozPosledni(null);
+        assertNull(seznam);
+    }
+    
+    @Test
+    public void testvlozPosledni2(){
+        System.out.println("vlozPosledni2");
+        seznam.vlozPosledni(5);
+        seznam.vlozPosledni(10);
+        SeznamTest data = new SeznamTest();
+        seznam.vlozPosledni(data);
+        System.out.println(seznam.zpristupniPosledni());
+        assertEquals(data, seznam.zpristupniPosledni());
+    }
+
+    @Test(expected = NoSuchElementException.class)
+    public void testZpristupniPrvni() {
+        System.out.println("zpristupniPrvni");
+        seznam.zpristupniPrvni();
+
+    }
+
+    @Test
+    public void testZpristupniPrvni2() {
+        System.out.println("zpristupniPrvni2");
+        seznam.vlozPrvni(5);
+        seznam.vlozPrvni(10);
+        assertEquals(10, seznam.zpristupniPrvni());
+    }
+
+    @Test(expected = NoSuchElementException.class)
+    public void testZpristupniPosledni() {
+        System.out.println("zpristupniPosledni");
+        seznam.zpristupniPosledni();
+    }
+
+    @Test
+    public void testZpristupniPosledni2() {
+        System.out.println("zpristupniPosledni2");
+        seznam.vlozPosledni(5);
+        seznam.vlozPosledni(10);
+        SeznamTest data = new SeznamTest();
+        seznam.vlozPosledni(data);
+        assertEquals(data, seznam.zpristupniPosledni());
+    }
+
+    @Test(expected = NoSuchElementException.class)
+    public void testZpristupniAktualni() throws NoSuchElementException, IAbstrDoubleList.ListException {
+        System.out.println("zpristupniAktualni");
+        seznam.zpristupniAktualni();
+    }
+
+    @Test(expected = IAbstrDoubleList.ListException.class)
+    public void testZpristupniAktualni2() throws NoSuchElementException, IAbstrDoubleList.ListException {
+        System.out.println("zpristupniAktualni2");
+        seznam.vlozPosledni(5);
+        seznam.zpristupniAktualni();
+    }
+
+    @Test
+    public void testZpristupniAktualni3() throws IAbstrDoubleList.ListException {
+        System.out.println("zpristupniAktualni3");
+        SeznamTest data = new SeznamTest();
+        seznam.vlozPrvni(data);
+        System.out.println(seznam.zpristupniAktualni());
+        assertEquals(data, seznam.zpristupniAktualni());
+    }
+
+    @Test(expected = NoSuchElementException.class)
+    public void testZpristupniPredchudce() throws NoSuchElementException, IAbstrDoubleList.ListException {
+        System.out.println("zpristupniPredchudce");
+        seznam.vlozPrvni(5);
+        seznam.zpristupniPredchudce();
+    }
+    
+    @Test(expected = IAbstrDoubleList.ListException.class)
+    public void testZpristupniPredchudce2() throws NoSuchElementException, IAbstrDoubleList.ListException {
+        System.out.println("zpristupniPredchudce2");
+        seznam.vlozPosledni(5);
+        seznam.zpristupniAktualni();
+    }
+    
+    @Test
+    public void testZpristupniPredchudce3() throws NoSuchElementException, IAbstrDoubleList.ListException {
+        System.out.println("zpristupniPredchudce3");
+        seznam.vlozPrvni(5);
+        seznam.vlozPredchudce(10);
+        assertEquals(10, seznam.zpristupniPredchudce());
+    }
+    
+    @Test(expected = NoSuchElementException.class)
+    public void testZpristupniNaslednika() throws NoSuchElementException, IAbstrDoubleList.ListException{
+        System.out.println("zpristupniNaslednika");
+        SeznamTest data = new SeznamTest();
+        seznam.vlozPrvni(data);
+        seznam.zpristupniNaslednika();
+    }
+    
+    @Test(expected = IAbstrDoubleList.ListException.class)
+    public void testZpristupniNaslednika2() throws NoSuchElementException, IAbstrDoubleList.ListException{
+        System.out.println("zpristupniNaslednika2");
+        SeznamTest data = new SeznamTest();
+        seznam.vlozPosledni(data);
+        seznam.zpristupniAktualni();
+    }
+    
+    @Test
+    public void testZpristupniNaslednika3() throws NoSuchElementException, IAbstrDoubleList.ListException{
+        System.out.println("zpristupniNaslednika3");
+        SeznamTest data = new SeznamTest();
+        seznam.vlozPrvni(5);
+        seznam.vlozNaslednika(data);
+        assertEquals(data, seznam.zpristupniNaslednika());
+    }
+    
+    @Test(expected = NoSuchElementException.class)
+    public void testOdeberPrvni(){
+        System.out.println("odeberPrvni");
+        seznam.zpristupniPrvni();
+    }
+    
+    @Test
+    public void testOdeberPrvni2(){
+        System.out.println("odeberPrvni2");
+        seznam.vlozPrvni(15);
+        SeznamTest expResult = new SeznamTest();
+        seznam.vlozPrvni(expResult);
+        assertEquals(expResult, seznam.odeberPrvni());
+    }
+    
+    @Test(expected = NoSuchElementException.class)
+    public void testOdeberPosledni(){
+        System.out.println("odeberPosledni");
+        seznam.zpristupniPosledni();
+    }
+    
+    @Test
+    public void testOdeberPosledni2(){
+        System.out.println("odeberPosledni2");
+        seznam.vlozPosledni(5);
+        SeznamTest expResult = new SeznamTest();
+        seznam.vlozPosledni(10);
+        seznam.vlozPosledni(expResult);
+        assertEquals(expResult, seznam.odeberPosledni());
+    }
+    
+    @Test(expected = NoSuchElementException.class)
+    public void testOdeberPredchudce(){
+        System.out.println("odeberPredchudce");
+        seznam.zpristupniPrvni();
+    }
+    
+    @Test(expected = NoSuchElementException.class)
+    public void testOdeberPredchudce2() throws NoSuchElementException, IAbstrDoubleList.ListException{
+        System.out.println("odeberPredchudce2");
+        seznam.zpristupniPrvni();
+        SeznamTest data = new SeznamTest();
+        seznam.vlozPrvni(data);
+        seznam.zpristupniPredchudce();
+    }
+    
+    @Test
+    public void testOdeberPredchudce3() throws NullPointerException, IAbstrDoubleList.ListException{
+        System.out.println("odeberPredchudce3");
+        seznam.vlozPrvni(1);
+        SeznamTest test = new SeznamTest();
+        seznam.vlozPredchudce(test);
+        System.out.println(seznam.zpristupniPrvni());
+        assertEquals(test, seznam.odeberPredchudce());
+    }
+}

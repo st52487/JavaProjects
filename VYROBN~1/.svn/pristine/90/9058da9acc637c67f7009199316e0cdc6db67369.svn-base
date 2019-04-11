@@ -1,0 +1,44 @@
+package knihovna;
+
+import java.io.BufferedReader;
+import java.io.FileReader;
+import java.io.IOException;
+import procesy.Manualni;
+import procesy.Roboticky;
+import zpracovani.IVyrobniProces;
+import zpracovani.VyrobniProces;
+import vycty.enumPozice;
+
+public final class IO {
+
+    private IO() {
+
+    }
+
+    public static int nahrajZeSouboru(String file) {
+        String csvFile = file;
+        String line = "";
+        String cvsSplitBy = ";";
+        final IVyrobniProces VYROBNI_PROCES = VyrobniProces.getInstance();
+        int pocet = 0;
+
+        try (BufferedReader br = new BufferedReader(new FileReader(csvFile))) {
+            while ((line = br.readLine()) != null) {
+                if (pocet != 0) {
+                    String[] pole = line.split(cvsSplitBy);
+                    if (pole[1].equals("0")) {
+                        VYROBNI_PROCES.vlozProces(new Roboticky(pole[0],
+                                Integer.parseInt(pole[2])), enumPozice.PRVNI);
+                    } else {
+                        VYROBNI_PROCES.vlozProces(new Manualni(pole[0], Integer.parseInt(pole[1]),
+                                Integer.parseInt(pole[2])), enumPozice.PRVNI);
+                    }
+                }
+                pocet++;
+            }
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        return pocet;
+    }
+}

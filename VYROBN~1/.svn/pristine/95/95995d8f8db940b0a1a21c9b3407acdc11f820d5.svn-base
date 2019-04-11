@@ -1,0 +1,65 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package kolekce;
+
+import org.junit.After;
+import org.junit.AfterClass;
+import org.junit.Before;
+import org.junit.BeforeClass;
+import org.junit.Test;
+import static org.junit.Assert.*;
+
+
+public class DoubleListTests {
+    
+    private AbstrDoubleList seznam;
+    
+    public DoubleListTests() {
+    }
+    
+    @BeforeClass
+    public static void setUpClass() {
+    }
+    
+    @AfterClass
+    public static void tearDownClass() {
+    }
+    
+    @Before
+    public void setUp() {
+    }
+    
+    @After
+    public void tearDown() {
+    }
+    
+    @Test
+    public void testVlozPrvni(){
+        System.out.println("vlozPrvni");
+        seznam = new AbstrDoubleList();
+        SeznamTest data = new SeznamTest();
+        SeznamTest expResult = new SeznamTest();
+        seznam.vlozPrvni(data);
+        seznam.vlozPrvni(expResult);
+        seznam.vlozPrvni(5);
+        assertEquals(5, seznam.zpristupniPrvni());
+    }
+    
+    @Test
+    public void testOdeberPrvni(){
+        seznam = new AbstrDoubleList();
+        seznam.vlozPrvni(5);
+        seznam.vlozPrvni(10);
+        seznam.odeberPrvni();
+        assertEquals(5, seznam.zpristupniPrvni());
+    }
+
+    // TODO add test methods here.
+    // The methods must be annotated with annotation @Test. For example:
+    //
+    // @Test
+    // public void hello() {}
+}

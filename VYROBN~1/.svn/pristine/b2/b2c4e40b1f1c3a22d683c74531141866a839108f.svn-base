@@ -1,0 +1,191 @@
+package gui;
+
+import java.io.IOException;
+import java.net.URL;
+import java.util.Iterator;
+import java.util.ResourceBundle;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
+import javafx.scene.control.Button;
+import javafx.scene.control.ListView;
+import javafx.scene.layout.HBox;
+import javafx.scene.layout.VBox;
+import javafx.stage.Modality;
+import javafx.stage.Stage;
+import knihovna.Alerts;
+import kolekce.IAbstrDoubleList;
+import procesy.IProces;
+import procesy.Manualni;
+import procesy.Roboticky;
+import zpracovani.IVyrobniProces;
+import zpracovani.VyrobniProces;
+import vycty.enumPozice;
+
+public class FXMLDocumentController implements Initializable {
+
+    @FXML
+    private Button btnPridej;
+    @FXML
+    private Button btnTest;
+    @FXML
+    private Button btnSmazJeden;
+    @FXML
+    private Button btnZrus;
+    @FXML
+    private Button btnUloz;
+    @FXML
+    private Button btnNahraj;
+    @FXML
+    private Button btnImportuj;
+    @FXML
+    private Button btnReorganizuj;
+
+    private final IVyrobniProces VYROBNI_PROCES = VyrobniProces.getInstance();
+    private Iterator<IProces> iterator;
+    @FXML
+    private ListView<IProces> listView;
+    private static final String CSVFILE = "import.csv";
+
+    @FXML
+    private HBox hbox2;
+    @FXML
+    private HBox hbox1;
+    @FXML
+    private HBox hbox3;
+    @FXML
+    private VBox vbox;
+
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        hbox1.getStyleClass().add("hbox");
+        hbox2.getStyleClass().add("hbox");
+        hbox3.getStyleClass().add("hbox");
+        hbox3.getStyleClass().add("hbox");
+    }
+
+    @FXML
+    private void pridej(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(VyrobniProces_Balacek.class.getResource("FXMLNovy.fxml"));
+            Parent parent = loader.load();
+            Stage stage = new Stage();
+            stage.initModality(Modality.WINDOW_MODAL);
+            stage.initOwner(VyrobniProces_Balacek.getStage());
+            stage.setResizable(false);
+            Scene scene = new Scene(parent);
+            stage.setTitle("Přidej nový proces");
+            stage.setScene(scene);
+            FXMLNovyController controller = loader.getController();
+            controller.setDialogStage(stage);
+            stage.showAndWait();
+            aktualizujList();
+
+        } catch (IOException ex) {
+            Alerts.showErrorAlert("Chyba", "Nepodarilo se otevrit okno!");
+        }
+    }
+
+    @FXML
+    private void nahrajTest(ActionEvent event) {
+        listView.getItems().clear();
+        clickTest();
+        nacti();
+    }
+
+    private void clickTest() {
+        VYROBNI_PROCES.zrus();
+        try {
+            VYROBNI_PROCES.vlozProces(new Manualni("M4ghf", 17, 3), enumPozice.PRVNI);
+            VYROBNI_PROCES.vlozProces(new Manualni("Mdsds", 10, 5), enumPozice.PRVNI);
+            VYROBNI_PROCES.vlozProces(new Manualni("Mda", 5, 5), enumPozice.PRVNI);
+            VYROBNI_PROCES.vlozProces(new Roboticky("Rsds", 110), enumPozice.PRVNI);
+            VYROBNI_PROCES.vlozProces(new Manualni("Mdfsfs", 40, 5), enumPozice.PRVNI);
+            VYROBNI_PROCES.vlozProces(new Roboticky("R7s", 40), enumPozice.PRVNI);
+            VYROBNI_PROCES.vlozProces(new Roboticky("R7sds", 55), enumPozice.PRVNI);
+             VYROBNI_PROCES.vlozProces(new Manualni("Mdsds", 4, 5), enumPozice.PRVNI);
+            VYROBNI_PROCES.vlozProces(new Manualni("Mda", 4, 5), enumPozice.PRVNI);
+            VYROBNI_PROCES.vlozProces(new Manualni("Mda", 4, 5), enumPozice.PRVNI);
+        } catch (NullPointerException ex) {
+            knihovna.Alerts.showErrorAlert("Chyba!", "Chyba při vytváření",
+                    "Nepodařilo se přidat testovací automobily!");
+        }
+    }
+
+    @FXML
+    private void smazJeden(ActionEvent event) throws IAbstrDoubleList.ListException {
+        IProces proces = listView.getSelectionModel().getSelectedItem();
+        if (proces != null) {
+            VYROBNI_PROCES.zrusProces(proces);
+        }
+        aktualizujList();
+    }
+
+    @FXML
+    private void zrusSeznam(ActionEvent event) {
+        VYROBNI_PROCES.zrus();
+        aktualizujList();
+    }
+
+    @FXML
+    private void ulozit(ActionEvent event) {
+        VYROBNI_PROCES.serializuj();
+    }
+
+    @FXML
+    private void nahraj(ActionEvent event) {
+        VYROBNI_PROCES.deserializuj();
+        aktualizujList();
+    }
+
+    @FXML
+    private void importujZeSouboru(ActionEvent event) {
+        VYROBNI_PROCES.zrus();
+        int pocet = VYROBNI_PROCES.importDat(CSVFILE);
+        aktualizujList();
+        knihovna.Alerts.informationAlert("Importování ze souboru", "Importovaní "
+                + "ze souboru proběhlo úspěšně, bylo načteno: " + pocet + " procesů!");
+    }
+
+    @FXML
+    private void reorganizuj(ActionEvent event) {
+        try {
+            FXMLLoader loader = new FXMLLoader();
+            loader.setLocation(VyrobniProces_Balacek.class.getResource("FXMLReorganizuj.fxml"));
+            Parent parent = loader.load();
+            Stage stage = new Stage();
+            stage.initModality(Modality.WINDOW_MODAL);
+            stage.initOwner(VyrobniProces_Balacek.getStage());
+            stage.setResizable(false);
+            Scene scene = new Scene(parent);
+            stage.setTitle("Reorganizuj");
+            stage.setScene(scene);
+            FXMLReorganizujController controller = loader.getController();
+            controller.setDialogStage(stage);
+            stage.showAndWait();
+            aktualizujList();
+
+        } catch (IOException ex) {
+            Alerts.showErrorAlert("Chyba", "Nepodarilo se otevrit okno!");
+        }
+    }
+
+    private void nacti() {
+        iterator = VYROBNI_PROCES.iterator();
+        while (iterator.hasNext()) {
+            listView.getItems().add((IProces) iterator.next());
+        }
+    }
+
+    private void aktualizujList() {
+        listView.getItems().clear();
+        iterator = VYROBNI_PROCES.iterator();
+        while (iterator.hasNext()) {
+            listView.getItems().add(iterator.next());
+        }
+    }
+}

@@ -1,0 +1,6 @@
+package zpracovani;
+
+
+public enum enumPozice {
+    PRVNI, POSLEDNI, DALSI, PREDCHOZI, AKTUALNI;
+}

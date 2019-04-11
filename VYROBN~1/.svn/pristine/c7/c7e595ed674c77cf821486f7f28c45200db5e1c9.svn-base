@@ -1,0 +1,132 @@
+package gui;
+
+import java.net.URL;
+import java.util.ResourceBundle;
+import javafx.collections.FXCollections;
+import javafx.collections.ObservableList;
+import javafx.event.ActionEvent;
+import javafx.fxml.FXML;
+import javafx.fxml.Initializable;
+import javafx.scene.control.Button;
+import javafx.scene.control.ComboBox;
+import javafx.scene.control.Label;
+import javafx.scene.control.TextField;
+import javafx.stage.Stage;
+import procesy.Manualni;
+import procesy.Roboticky;
+import vycty.TypProcesu;
+import zpracovani.IVyrobniProces;
+import zpracovani.VyrobniProces;
+import vycty.enumPozice;
+
+public class FXMLNovyController implements Initializable {
+
+    @FXML
+    private Label labelDruh;
+    @FXML
+    private Label labelId;
+    @FXML
+    private Label labelCas;
+    @FXML
+    private Label labelPocetOsob;
+    @FXML
+    private ComboBox<TypProcesu> comboBox;
+    @FXML
+    private TextField textId;
+    @FXML
+    private TextField textCas;
+    @FXML
+    private TextField textPocetOsob;
+    @FXML
+    private Button btnOK;
+
+    private ObservableList<TypProcesu> druh;
+    private IVyrobniProces VYROBNI_PROCES;
+    private Stage dialogStage;
+
+    @Override
+    public void initialize(URL url, ResourceBundle rb) {
+        druh = FXCollections.observableArrayList(TypProcesu.values());
+        comboBox.getItems().addAll(druh);
+        comboBox.getSelectionModel().selectFirst();
+        labelPocetOsob.setVisible(true);
+        textPocetOsob.setVisible(true);
+        labelPocetOsob.setText("Počet osob: ");
+        VYROBNI_PROCES = VyrobniProces.getInstance();
+    }
+
+    @FXML
+    private void clickOK(ActionEvent event) {
+        pridejProces();
+        dialogStage.close();
+    }
+
+    public void setDialogStage(Stage dialogStage) {
+        this.dialogStage = dialogStage;
+    }
+
+    @FXML
+    private void comboBoxZmena(ActionEvent event) {
+        switch (comboBox.getSelectionModel().getSelectedItem()) {
+            case ROBOT:
+                labelPocetOsob.setVisible(false);
+                textPocetOsob.setVisible(false);
+                break;
+            case MANUALNI:
+                labelPocetOsob.setVisible(true);
+                textPocetOsob.setVisible(true);
+                break;
+        }
+    }
+
+    private void pridejProces() {
+        if (comboBox.getSelectionModel().getSelectedItem() != null) {
+            switch (comboBox.getSelectionModel().getSelectedItem()) {
+                case ROBOT:
+                    nastavRobot();
+                    break;
+                case MANUALNI:
+                    nastavManualni();
+                    break;
+            }
+        }
+    }
+
+    private void nastavRobot() {
+        try {
+            pridejRoboticky(textId.getText(), Integer.parseInt(textCas.getText()));
+        } catch (NumberFormatException ex) {
+            knihovna.Alerts.showErrorAlert("Chyba!", "Nastavení robotického procesu "
+                    + "se nezdařilo");
+        }
+    }
+
+    private void pridejRoboticky(String id, int cas) {
+        try {
+            VYROBNI_PROCES.vlozProces(new Roboticky(id, cas), enumPozice.PRVNI);
+        } catch (Exception ex) {
+            knihovna.Alerts.showErrorAlert("Chyba!", "Přidání robotického procesu "
+                    + "se nezdařilo");
+        }
+    }
+
+    private void pridejManualni(String id, int cas, int pocet) {
+        try {
+            VYROBNI_PROCES.vlozProces(new Manualni(id, cas, pocet), enumPozice.PRVNI);
+        } catch (Exception ex) {
+            knihovna.Alerts.showErrorAlert("Chyba!", "Přidání manuálního proccesu "
+                    + "se nezdařilo");
+        }
+    }
+
+    private void nastavManualni() {
+        try {
+            pridejManualni(textId.getText(), Integer.parseInt(textCas.getText()),
+                    Integer.parseInt(textPocetOsob.getText()));
+        } catch (NumberFormatException ex) {
+            knihovna.Alerts.showErrorAlert("Chyba!", "Nastavení manuálního procesu "
+                    + "se nezdařilo");
+        }
+    }
+
+}

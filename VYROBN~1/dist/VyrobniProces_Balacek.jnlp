@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<jnlp spec="1.0" xmlns:jfx="http://javafx.com" href="VyrobniProces_Balacek.jnlp">
+  <information>
+    <title>VyrobniProces_Balacek</title>
+    <vendor>caval</vendor>
+    <description>null</description>
+    <offline-allowed/>
+  </information>
+  <resources>
+    <j2se version="1.6+" href="http://java.sun.com/products/autodl/j2se"/>
+    <jar href="VyrobniProces_Balacek.jar" size="34739" download="eager" />
+  </resources>
+  <applet-desc  width="800" height="600" main-class="com.javafx.main.NoJavaFXFallback"  name="VyrobniProces_Balacek" >
+    <param name="requiredFXVersion" value="8.0+"/>
+  </applet-desc>
+  <jfx:javafx-desc  width="800" height="600" main-class="gui.VyrobniProces_Balacek"  name="VyrobniProces_Balacek" />
+  <update check="always"/>
+</jnlp>

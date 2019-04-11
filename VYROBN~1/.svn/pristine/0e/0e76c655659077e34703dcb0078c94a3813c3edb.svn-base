@@ -1,0 +1,277 @@
+package kolekce;
+
+import java.util.Iterator;
+import java.util.NoSuchElementException;
+import java.util.Objects;
+
+public class AbstrDoubleList<E> implements kolekce.IAbstrDoubleList<E> {
+
+    private Prvek prvni;
+    private Prvek posledni;
+    private Prvek aktualni;
+
+    public AbstrDoubleList() {
+        prvni = null;
+        posledni = null;
+        aktualni = null;
+    }
+
+    private class Prvek {
+
+        Prvek predchozi;
+        Prvek dalsi;
+        E data;
+
+        private Prvek(E data) {
+            this.data = data;
+            predchozi = null;
+            dalsi = null;
+        }
+    }
+
+    @Override
+    public void zrus() {
+        prvni = null;
+        posledni = null;
+        aktualni = null;
+    }
+
+    @Override
+    public boolean jePrazdny() {
+        return prvni == null;
+    }
+
+    @Override
+    public void vlozPrvni(E data) throws NullPointerException {
+        Objects.requireNonNull(data, "Nejsou data");
+        Prvek novy = new Prvek(data);
+        if (prvni == null) {
+            posledni = novy;
+        } else {
+            prvni.predchozi = novy;
+            novy.dalsi = prvni;
+        }
+        prvni = novy;
+        prvni.predchozi = posledni;
+        posledni.dalsi = prvni;
+    }
+
+    @Override
+    public void vlozPosledni(E data) throws NullPointerException {
+        Objects.requireNonNull(data, "Nejsou data");
+        Prvek novy = new Prvek(data);
+
+        if (posledni == null) {
+            prvni = novy;
+        } else {
+            posledni.dalsi = novy;
+            novy.predchozi = posledni;
+        }
+        posledni = novy;
+        posledni.dalsi = prvni;
+        prvni.predchozi = posledni;
+    }
+
+    private E odeber(Prvek prvek) {
+        E data = prvek.data;
+        if (prvek == prvni && prvek == posledni) {
+            zrus();
+            return data;
+        } else if (prvek == prvni) {
+            prvni.dalsi.predchozi = null;
+            prvni = prvni.dalsi;
+            if (prvek == aktualni) {
+                aktualni = prvni;
+            }
+        } else if (prvek == posledni) {
+            posledni = posledni.predchozi;
+            posledni.dalsi = null;
+            if (prvek == aktualni) {
+                aktualni = prvni;
+            }
+        } else {
+            prvek.predchozi.dalsi = prvek.dalsi;
+            prvek.dalsi.predchozi = prvek.predchozi;
+            if (prvek == aktualni) {
+                aktualni = prvek.predchozi;
+            }
+        }
+
+        return data;
+    }
+
+    @Override
+    public void vlozNaslednika(E data) throws NullPointerException, ListException {
+        Objects.requireNonNull(data, "Nejsou data");
+        Prvek novy = new Prvek(data);
+        if (aktualni == null) {
+            throw new ListException();
+        }
+
+        if (aktualni == posledni) {
+            posledni.dalsi = novy;
+            novy.predchozi = posledni;
+            posledni = novy;
+        } else {
+            aktualni.dalsi.predchozi = novy;
+            novy.dalsi = aktualni.dalsi;
+            novy.predchozi = aktualni;
+            aktualni.dalsi = novy;
+        }
+    }
+
+    @Override
+    public void vlozPredchudce(E data) throws ListException, NoSuchElementException {
+        Prvek novy = new Prvek(data);
+
+        if (data == null) {
+            throw new NoSuchElementException();
+        }
+
+        if (aktualni == null) {
+            throw new ListException();
+        }
+        if (aktualni == prvni) {
+            prvni.predchozi = novy;
+            novy.dalsi = prvni;
+            prvni = novy;
+        } else {
+            novy.predchozi = aktualni.predchozi;
+            novy.dalsi = aktualni;
+            aktualni.predchozi.dalsi = novy;
+            aktualni.predchozi = novy;
+        }
+    }
+
+    @Override
+    public E zpristupniAktualni() throws NoSuchElementException, ListException {
+        if (jePrazdny()) {
+            throw new NoSuchElementException();
+        }
+        if (aktualni == null) {
+            throw new ListException();
+        }
+        return aktualni.data;
+    }
+
+    @Override
+    public E zpristupniPrvni() throws NoSuchElementException {
+        if (jePrazdny()) {
+            throw new NoSuchElementException();
+        }
+        aktualni = prvni;
+        return prvni.data;
+    }
+
+    @Override
+    public E zpristupniPosledni() throws NoSuchElementException {
+        if (jePrazdny()) {
+            throw new NoSuchElementException();
+        }
+        aktualni = posledni;
+        return posledni.data;
+    }
+
+    @Override
+    public E zpristupniNaslednika() throws NoSuchElementException, ListException {
+        if (aktualni == null) {
+            throw new ListException();
+        }
+
+        if (aktualni.dalsi == null) {
+            throw new NoSuchElementException();
+        }
+
+        aktualni = aktualni.dalsi;
+        return aktualni.data;
+    }
+
+    @Override
+    public E zpristupniPredchudce() throws NoSuchElementException, ListException {
+        if (jePrazdny()) {
+            throw new NoSuchElementException();
+        }
+        if (aktualni == null) {
+            throw new ListException();
+        }
+        aktualni = aktualni.predchozi;
+        return aktualni.data;
+    }
+
+    @Override
+    public E odeberAktualni() throws ListException, NoSuchElementException {
+        if (jePrazdny()) {
+            throw new NoSuchElementException();
+        }
+
+        if (aktualni == null) {
+            throw new ListException();
+        }
+        return odeber(aktualni);
+    }
+
+    @Override
+    public E odeberPrvni() throws NoSuchElementException {
+        return odeber(prvni);
+    }
+
+    @Override
+    public E odeberPosledni() throws NoSuchElementException {
+           if (jePrazdny()) {
+            throw new NoSuchElementException();
+        }
+
+        return odeber(posledni);
+    }
+
+    @Override
+    public E odeberNaslednika() throws ListException, NoSuchElementException {
+        if (jePrazdny()) {
+            throw new NoSuchElementException();
+        }
+
+        if (aktualni == null) {
+            throw new ListException();
+        }
+
+        return odeber(aktualni.dalsi);
+    }
+
+    @Override
+    public E odeberPredchudce() throws ListException, NoSuchElementException {
+        if (jePrazdny()) {
+            throw new NoSuchElementException();
+        }
+
+        if (aktualni == null) {
+            throw new ListException();
+        }
+        return odeber(aktualni.predchozi);
+    }
+
+    @Override
+    public Iterator<E> iterator() {
+        Iterator<E> iterator = new Iterator<E>() {
+
+            Prvek index = prvni;
+            Prvek pomocny = null;
+
+            @Override
+            public boolean hasNext() {
+                return index != pomocny;
+            }
+
+            @Override
+            public E next() {
+                if (hasNext()) {
+                    E data = index.data;
+                    pomocny = index;
+                    index = index.dalsi;
+                    return data;
+                }
+                throw new NoSuchElementException();
+            }
+        };
+        return iterator;
+    }
+}
